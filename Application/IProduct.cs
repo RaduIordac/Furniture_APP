@@ -10,7 +10,7 @@ namespace Application
     public interface IProduct
     {
         IEnumerable<Product> GetAllProducts();
-        Product GetProduct(int id);
+        Product GetAllProducts(int ID);
 
     }
 }

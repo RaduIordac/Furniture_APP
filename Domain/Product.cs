@@ -8,12 +8,12 @@ namespace Domain
 {
     public class Product
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
 
-        public List<Part> Parts { get; set; } = new List<Part> { new Part() };
-        public DateTime Created { get; set; }
+        //public List<Part> Parts { get; set; } = new List<Part> { new Part() };
+        //public DateTime Created { get; set; }
 
 
     }
