@@ -1,12 +1,32 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Application;
+using Application.Products.Create;
 using Infrastructure;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 
 Console.WriteLine("Hello, World!");
 
-IProduct productRepo = new InMemProductRepo();
+var container = new ServiceCollection()
+    .AddScoped<IProductRepository, InMemProductRepo>()
+    .AddMediatR(typeof(ApplicationAssembly))
+    .BuildServiceProvider();
 
-var allProducts = productRepo.GetAllProducts();
+// var command = container.GetRequiredService<CreateProductCommandHandler>();
+// new  CreateProductCommandHandler(new InMemProductRepo())
+var mediatopr = container.GetRequiredService<IMediator>();
+
+await mediatopr.Send(new CreateProductCommand
+{
+    Name = "Giggel",
+    Price = 100,
+});
+
+
+
+IProductRepository productRepo = container.GetRequiredService<IProductRepository>();
+
+var allProducts = productRepo.GetAll();
 
 foreach (var p in allProducts)
 {

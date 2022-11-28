@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public class InMemProductRepo : IProduct
+    public class InMemProductRepo : IProductRepository
     {
         private List<Product> _products;
         public InMemProductRepo()
@@ -26,12 +26,25 @@ namespace Infrastructure
 
         }
 
-        public IEnumerable<Product> GetAllProducts()
+        public int Create(Product product)
+        {
+            product.Id = _products.Count + 1;
+            _products.Add(product);
+
+            return product.Id;
+        }
+
+        public IEnumerable<Product> GetAll()
         {
             return _products;
         }
 
-        Product IProduct.GetAllProducts(int ID)
+        Product GetById(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Product IProductRepository.GetById(int Id)
         {
             throw new NotImplementedException();
         }
