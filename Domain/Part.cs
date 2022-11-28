@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    internal class Part
+    public class Part
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int QuantityInStock { get; set; }
+        public decimal Price { get; set; }
     }
 }

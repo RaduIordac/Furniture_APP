@@ -12,6 +12,9 @@ namespace Domain
         public string Name { get; set; }
         public decimal Price { get; set; }
 
+        public List<Part> Parts { get; set; }
+        public DateTime Created { get; set; }
+
 
     }
 }
