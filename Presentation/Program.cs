@@ -10,5 +10,5 @@ var allProducts = productRepo.GetAllProducts();
 
 foreach (var p in allProducts)
 {
-    Console.WriteLine($" - {p.Name}- ");
+    Console.WriteLine($" - {p.Name}- {p.ID} -- {p.Price} - {p.Parts}");
 }
