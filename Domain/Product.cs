@@ -8,14 +8,10 @@ namespace Domain
 {
     public class Product
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
-
-        public List<Part> Parts { get; set; } = new List<Part> { new Part() };
-        
+        public List<Part>? Parts { get; set; }
         public DateTime Created { get; set; }
-
-
     }
 }
