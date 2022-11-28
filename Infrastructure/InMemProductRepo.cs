@@ -28,7 +28,7 @@ namespace Infrastructure
 
         public IEnumerable<Product> GetAllProducts()
         {
-            throw new NotImplementedException();
+            return _products;
         }
     }
 }
