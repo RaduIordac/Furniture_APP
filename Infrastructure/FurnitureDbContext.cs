@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,13 @@ namespace Infrastructure
         private const string connectionString = @"Server=(localdb)\mssqllocaldb;
                                                     Database=FurnitureEfCoreDb;
                                                     Trusted_Connection=True";
-        protected override void OnConfiguring(
-        DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
                 .UseSqlServer(connectionString);
-        }
+                }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Part> Parts     { get; set; }
+
     }
 }
