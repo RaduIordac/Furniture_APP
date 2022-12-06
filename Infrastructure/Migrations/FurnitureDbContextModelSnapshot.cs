@@ -37,15 +37,10 @@ namespace Infrastructure.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
                     b.Property<int>("QuantityInStock")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Parts");
                 });
@@ -76,16 +71,34 @@ namespace Infrastructure.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Domain.Part", b =>
+            modelBuilder.Entity("PartProduct", b =>
                 {
-                    b.HasOne("Domain.Product", null)
-                        .WithMany("Parts")
-                        .HasForeignKey("ProductId");
+                    b.Property<int>("PartsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PartsId", "ProductsId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("PartProduct");
                 });
 
-            modelBuilder.Entity("Domain.Product", b =>
+            modelBuilder.Entity("PartProduct", b =>
                 {
-                    b.Navigation("Parts");
+                    b.HasOne("Domain.Part", null)
+                        .WithMany()
+                        .HasForeignKey("PartsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

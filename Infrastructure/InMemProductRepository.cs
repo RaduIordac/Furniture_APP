@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public class InMemProductRepo : IProductRepository
+    public class InMemProductRepository : IProductRepository
     {
         private List<Product> _products;
-        public InMemProductRepo()
+        public InMemProductRepository()
         {
             _products = new List<Product> 
             {

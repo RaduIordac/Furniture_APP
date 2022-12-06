@@ -9,8 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 Console.WriteLine("Hello, World!");
 
 var container = new ServiceCollection()
-    .AddScoped<IProductRepository, InMemProductRepo>()
+    .AddScoped<IProductRepository, EfProductRepository>()
     .AddMediatR(typeof(ApplicationAssembly))
+    .AddScoped<FurnitureDbContext>()
     .BuildServiceProvider();
 
 // var command = container.GetRequiredService<CreateProductCommandHandler>();

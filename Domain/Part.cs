@@ -14,7 +14,6 @@ namespace Domain
         public int QuantityInStock { get; set; }
         public decimal Price { get; set; }
 
-        [ForeignKey("ProductID")]
-        Product ?Products { get; set; }
-     }
+        public ICollection<Product>? Products { get; set; }
+    }
 }
