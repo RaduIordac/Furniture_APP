@@ -10,9 +10,10 @@ namespace Infrastructure
 {
     public class FurnitureDbContext : DbContext
     {
-        private const string connectionString = @"Server=(localdb)\mssqllocaldb;
+        private const string connectionString = @"Server=PC-PC\SQLEXPRESS;
                                                     Database=FurnitureEfCoreDb;
-                                                    Trusted_Connection=True";
+                                                    Trusted_Connection=True;
+                                                    Encrypt=False";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder

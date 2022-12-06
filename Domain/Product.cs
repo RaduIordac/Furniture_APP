@@ -13,6 +13,8 @@ namespace Domain
         public decimal Price { get; set; }
         public virtual ICollection<Part>? Parts { get; set; }
         public DateTime Created { get; set; }
-        public DateTime Modified { get; set; }
+        public DateTime Modified { get; set; }   
+
+
     }
 }
