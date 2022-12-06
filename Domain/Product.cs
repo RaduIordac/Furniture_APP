@@ -11,7 +11,8 @@ namespace Domain
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public List<Part>? Parts { get; set; }
+        public virtual ICollection<Part>? Parts { get; set; }
         public DateTime Created { get; set; }
+        public DateTime Modified { get; set; }
     }
 }

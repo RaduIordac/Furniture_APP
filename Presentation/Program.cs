@@ -5,6 +5,7 @@ using Infrastructure;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
+
 Console.WriteLine("Hello, World!");
 
 var container = new ServiceCollection()
