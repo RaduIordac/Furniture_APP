@@ -1,5 +1,6 @@
 ﻿using Application;
 using Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +27,16 @@ namespace Infrastructure
 
         public IEnumerable<Product> GetAll()
         {
-            throw new NotImplementedException();
-        }
+            return _dbContext.Products.ToList();
+         }
 
         public Product GetById(int Id)
         {
-            throw new NotImplementedException();
+            var getPbyID = _dbContext.Products.Where(x => x.Id == Id);
+
+            return (Product)getPbyID;
+            //return (Product)_dbContext.Products.Find(x => x.Id == Id);
+            //throw new NotImplementedException();
         }
     }
 }

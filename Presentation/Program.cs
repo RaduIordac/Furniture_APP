@@ -18,11 +18,11 @@ var container = new ServiceCollection()
 // new  CreateProductCommandHandler(new InMemProductRepo())
 var mediatopr = container.GetRequiredService<IMediator>();
 
-await mediatopr.Send(new CreateProductCommand
-{
-    Name = "Giggel",
-    Price = 100,
-});
+//await mediatopr.Send(new CreateProductCommand
+//{
+//    Name = "Giggel",
+//    Price = 100,
+//});
 
 
 
