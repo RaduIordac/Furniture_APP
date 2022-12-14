@@ -1,5 +1,7 @@
 using Application;
 using Infrastructure;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

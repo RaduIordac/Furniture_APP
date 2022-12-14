@@ -15,5 +15,6 @@ namespace Domain
         public decimal Price { get; set; }
 
         public ICollection<Product>? Products { get; set; }
+        public ICollection<Category> ?Categories { get; set; }
     }
 }

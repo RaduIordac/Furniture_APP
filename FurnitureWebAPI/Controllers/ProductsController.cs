@@ -1,5 +1,6 @@
 ﻿using Application;
 using Domain;
+using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FurnitureWebAPI.Controllers
@@ -23,10 +24,10 @@ namespace FurnitureWebAPI.Controllers
             }
 
 
-            //public IActionResult Index()
-            //{
-            //    return View();
-            //}
-        }
+        //public IActionresult index()
+        //{
+        //    return view();
+        //}
     }
+}
 
