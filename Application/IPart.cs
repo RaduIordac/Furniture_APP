@@ -11,6 +11,7 @@ namespace Application
         {
             IEnumerable<Part> GetAllParts();
             Part GetPart(int id);
+            int Create(Part product);
 
 
     }
