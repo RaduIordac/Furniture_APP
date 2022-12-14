@@ -13,6 +13,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //builder.Services.AddScoped<IProductRepository, EfProductRepository>();
 builder.Services.AddScoped<IProductRepository, InMemProductRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddDbContext<FurnitureDbContext>();
+//builder.Services.AddMediatR;
+//builder.Services.AddAutoMapper;
 
 
 

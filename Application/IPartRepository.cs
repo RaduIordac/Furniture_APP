@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application
 {
-   public interface IPart
+   public interface IPartRepository
         {
             IEnumerable<Part> GetAllParts();
             Part GetPart(int id);

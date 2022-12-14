@@ -13,7 +13,7 @@ namespace Infrastructure
     {
         public readonly FurnitureDbContext _dbContext;
 
-        public EfProductRepository (FurnitureDbContext dbContext)
+        public EfProductRepository(FurnitureDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -24,11 +24,30 @@ namespace Infrastructure
             _dbContext.SaveChanges();
             return product.Id;
         }
+        public int Update(Product product)
+        {
+            _dbContext.Products.Update(product);
+            _dbContext.SaveChanges();
+            return product.Id;
+        }
+
+        public int Delete(Product product)
+        {
+            //_dbContext.Products.(product);
+            //_dbContext.SaveChanges();
+            //return product.Id;
+            throw NotImplementedException("No delete yet");
+        }
+
+        private Exception NotImplementedException(string v)
+        {
+            throw new NotImplementedException();
+        }
 
         public IEnumerable<Product> GetAll()
         {
             return _dbContext.Products.ToList();
-         }
+        }
 
         public Product GetById(int Id)
         {
@@ -36,7 +55,14 @@ namespace Infrastructure
 
             return (Product)getPbyID;
             //return (Product)_dbContext.Products.Find(x => x.Id == Id);
-            //throw new NotImplementedException();
+            //throw new NotImplementedException();                
+
+        }
+        public Product GetByName(string Name)
+        {
+            var getPbyName = _dbContext.Products.Where(x => x.Name == Name);
+
+            return (Product)getPbyName;
         }
     }
 }

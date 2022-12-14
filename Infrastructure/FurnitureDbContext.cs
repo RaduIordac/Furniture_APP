@@ -17,13 +17,14 @@ namespace Infrastructure
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlServer(connectionString);
+                .UseSqlServer(connectionString, b=> b.MigrationsAssembly("FurnitureWebAPI"));
                 }
         public DbSet<Product> Products { get; set; }
         public DbSet<Part> Parts     { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
     }
 }

@@ -39,12 +39,33 @@ namespace Infrastructure
             return _products;
         }
 
+        int IProductRepository.Create(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IProductRepository.Delete(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        
         Product GetById(int Id)
         {
             throw new NotImplementedException();
         }
 
         Product IProductRepository.GetById(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Product IProductRepository.GetByName(string Name)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IProductRepository.Update(Product product)
         {
             throw new NotImplementedException();
         }

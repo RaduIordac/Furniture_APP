@@ -11,7 +11,13 @@ namespace Application
     {
         IEnumerable<Product> GetAll();
         Product GetById(int Id);
+
+        Product GetByName(string Name);
         int Create(Product product);
+
+        int Update(Product product);
+
+        int Delete(Product product);
 
     }
 }

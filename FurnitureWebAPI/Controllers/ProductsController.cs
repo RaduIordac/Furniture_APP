@@ -10,17 +10,17 @@ namespace FurnitureWebAPI.Controllers
     [ApiController]
     public class ProductsController : Controller
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ProductsController(IProductRepository productRepository)
+        public ProductsController(IUnitOfWork unitOfWork)
         {
-            _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet(Name = "Get all products")]
         public ActionResult<List<Product>> GetA()
           {
-            return Ok(_productRepository.GetAll());
+            return Ok(_unitOfWork.ProductRepository.GetAll());
             }
 
 
