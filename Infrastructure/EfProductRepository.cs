@@ -33,7 +33,7 @@ namespace Infrastructure
 
         public int Delete(Product product)
         {
-            //_dbContext.Products.(product);
+            //_dbContext.Products.ExecuteDelete(product);
             //_dbContext.SaveChanges();
             //return product.Id;
             throw NotImplementedException("No delete yet");

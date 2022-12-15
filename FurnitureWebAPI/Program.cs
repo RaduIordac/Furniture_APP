@@ -11,12 +11,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddScoped<IProductRepository, EfProductRepository>();
-builder.Services.AddScoped<IProductRepository, InMemProductRepository>();
+builder.Services.AddScoped<IProductRepository, EfProductRepository>();
+//builder.Services.AddScoped<IProductRepository, InMemProductRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddDbContext<FurnitureDbContext>();
-//builder.Services.AddMediatR;
-//builder.Services.AddAutoMapper;
+builder.Services.AddDbContext<FurnitureDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddMediatR(typeof(ApplicationAssembly));
+//builder.Services.AddAutoMapper();
 
 
 
