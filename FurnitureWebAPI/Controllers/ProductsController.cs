@@ -36,7 +36,7 @@ namespace FurnitureWebAPI.Controllers
         [HttpGet("{id}", Name = "Get Product By Id")]
         public async Task<ActionResult> GetById(int id)
         {
-           //var result = await _mediatr.Send(command);
+           // var result = await _mediatr.Send(command);
             return NoContent();
         }
 
