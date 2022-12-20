@@ -32,12 +32,19 @@ namespace FurnitureWebAPI.Controllers
            var result =await _mediatr.Send(command);
             return Ok(result);
     }
-
+        //[Route("{id}")]
         [HttpGet("{id}", Name = "Get Product By Id")]
-        public async Task<ActionResult> GetById(int id)
+        public ActionResult<Product> GetByID(int id)
         {
-           // var result = await _mediatr.Send(command);
-            return NoContent();
+            var result = _unitOfWork.ProductRepository.GetById(id);   
+            return Json(result);
+        }
+        //[Route("{name}")]
+        [HttpGet("/{name}", Name = "Get Product By Name")]
+        public ActionResult<Product> GetByName( string name)
+        {
+            var result = _unitOfWork.ProductRepository.GetByName(name);
+            return Json(result);
         }
 
 

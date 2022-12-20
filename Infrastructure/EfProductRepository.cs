@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace Infrastructure
@@ -51,18 +52,18 @@ namespace Infrastructure
 
         public Product GetById(int Id)
         {
-            var getPbyID = _dbContext.Products.Where(x => x.Id == Id);
+            var getPbyID = _dbContext.Products.FirstOrDefault(x => x.Id == Id);
 
-            return (Product)getPbyID;
+            return getPbyID;
             //return (Product)_dbContext.Products.Find(x => x.Id == Id);
             //throw new NotImplementedException();                
 
         }
         public Product GetByName(string Name)
         {
-            var getPbyName = _dbContext.Products.Where(x => x.Name == Name);
-
-            return (Product)getPbyName;
+            var getPbyName = _dbContext.Products.FirstOrDefault(x => x.Name == Name);
+            
+            return getPbyName;
         }
     }
 }
