@@ -22,6 +22,8 @@ namespace Application.Products.Create
             {
                 Name = request.Name,
                 Price = request.Price,
+                Parts = (ICollection<Part>)request.Parts,
+                Categories = (ICollection<Category>)request.Categories,
             };
 
             _productRepository.Create(product);

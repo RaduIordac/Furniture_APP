@@ -10,15 +10,17 @@ namespace Infrastructure
     public class UnitOfWork: IUnitOfWork
     {
         private readonly FurnitureDbContext _dataContext;
-        public UnitOfWork(FurnitureDbContext dataContext, IProductRepository productRepository) //IPartRepository partRepository
+        public UnitOfWork(FurnitureDbContext dataContext,
+                            IProductRepository productRepository, 
+                            IPartRepository partRepository)
         {
             _dataContext = dataContext;
             ProductRepository = productRepository;
-            //PartRepository = partRepository;
+            PartRepository = partRepository;
         }
 
         public IProductRepository ProductRepository { get; private set; }
-        //public IPartRepository PartRepository { get; private set; }
+        public IPartRepository PartRepository { get; private set; }
 
 
 

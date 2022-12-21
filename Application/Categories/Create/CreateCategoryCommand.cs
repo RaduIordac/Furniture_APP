@@ -9,17 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Application.Products.Create
+namespace Application.Categories.Create
 {
-    public class CreateProductCommand : IRequest
+    public class CreateCategoryCommand : IRequest
     {
         public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        
-        public List<PartDto>? Parts { get; set; }
-
-        public List<CategoryDto>? Categories { get; set; }
-
-
+        public string? Description { get; set; }
+        public ICollection<PartDto>? Categories { get; set; }
+        public ICollection<Product>? Products { get; internal set; }
     }
 }

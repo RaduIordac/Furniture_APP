@@ -10,7 +10,17 @@ namespace Domain
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
+        public decimal Price
+        {
+            get { return this.Price; }
+            set
+            {
+                foreach (Part part in Parts)
+                {
+                    this.Price += part.Price;
+                };
+            } 
+        }
         public ICollection<Part> ?Parts { get; set; }
         public ICollection<Category> ?Categories { get; set; }
         public DateTime Created { get; set; }
