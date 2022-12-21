@@ -12,7 +12,7 @@ namespace Domain
         public string Name { get; set; } = string.Empty;
         public decimal Price
         {
-            get { return this.Price; }
+            get { return this.Price*interest; }
             set
             {
                 foreach (Part part in Parts)
@@ -24,8 +24,8 @@ namespace Domain
         public ICollection<Part> ?Parts { get; set; }
         public ICollection<Category> ?Categories { get; set; }
         public DateTime Created { get; set; }
-        public DateTime Modified { get; set; } = DateTime.Now; 
+        public DateTime Modified { get; set; } = DateTime.Now;
 
-
+        decimal interest = 1.35m;
     }
 }

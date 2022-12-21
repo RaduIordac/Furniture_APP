@@ -21,7 +21,7 @@ namespace Application.Products.Create
             var product = new Product
             {
                 Name = request.Name,
-                Price = request.Price,
+                //Price = request.Price,
                 Parts = (ICollection<Part>)request.Parts,
                 Categories = (ICollection<Category>)request.Categories,
             };

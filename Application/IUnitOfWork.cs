@@ -9,7 +9,7 @@ namespace Application
     public interface IUnitOfWork
     {
         public IProductRepository ProductRepository { get; }
-        //public IPartRepository PartRepository { get; }
+        public IPartRepository PartRepository { get; }
 
         Task Save();
     }

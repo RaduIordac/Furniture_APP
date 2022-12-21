@@ -36,7 +36,13 @@ namespace FurnitureWebAPI.Controllers
         [HttpGet("{id}", Name = "Get Product By Id")]
         public ActionResult<Product> GetByID(int id)
         {
-            var result = _unitOfWork.ProductRepository.GetById(id);   
+            var result = _unitOfWork.ProductRepository.GetById(id);
+
+            if (result == null)
+            {
+                return NotFound("Product does not exist or was deleted");
+            }
+
             return Json(result);
         }
         //[Route("{name}")]

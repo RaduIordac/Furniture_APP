@@ -14,7 +14,7 @@ namespace Application.Products.Create
     public class CreateProductCommand : IRequest
     {
         public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
+        public decimal Price { get; }
         
         public List<PartDto>? Parts { get; set; }
 
