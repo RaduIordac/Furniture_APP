@@ -46,7 +46,7 @@ namespace FurnitureWebAPI.Controllers
             return Json(result);
         }
         //[Route("{name}")]
-        [HttpGet("/{name}", Name = "Get Product By Name")]
+        [HttpGet("query/{name}", Name = "Get Product By Name")]
         public ActionResult<Product> GetByName( string name)
         {
             var result = _unitOfWork.ProductRepository.GetByName(name);

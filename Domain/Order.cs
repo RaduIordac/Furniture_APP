@@ -12,8 +12,8 @@ namespace Domain
 
         public DateTime OrderDate { get; set; }
 
-        public Client ?Client { get; set; }
-        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public Client? Client { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
     }
 }
