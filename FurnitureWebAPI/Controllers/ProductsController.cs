@@ -1,8 +1,11 @@
 ﻿using Application;
 using Application.Products.Create;
+using Application.Products.GetById;
+using Application.Products.Update;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace FurnitureWebAPI.Controllers
 {
@@ -34,9 +37,9 @@ namespace FurnitureWebAPI.Controllers
     }
         //[Route("{id}")]
         [HttpGet("{id}", Name = "Get Product By Id")]
-        public ActionResult<Product> GetByID(int id)
+        public async Task<ActionResult<Product>> GetByIDAsync(int id)
         {
-            var result = _unitOfWork.ProductRepository.GetById(id);
+            var result = await _mediatr.Send(new GetProductByIdQuery { Id = id });
 
             if (result == null)
             {
@@ -53,6 +56,12 @@ namespace FurnitureWebAPI.Controllers
             return Json(result);
         }
 
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(int id, UpdateProductCommand command)
+        {
+            command.Id = id;
+            return Json(await _mediatr.Send(command));
+        }
 
         //public IActionresult index()
         //{

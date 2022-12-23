@@ -52,7 +52,11 @@ namespace Infrastructure
 
         public Product GetById(int Id)
         {
-            var getPbyID = _dbContext.Products.FirstOrDefault(x => x.Id == Id);
+            var getPbyID = _dbContext
+                .Products
+                .Include(x => x.Parts)
+                .Include(x => x.Categories)
+                .FirstOrDefault(x => x.Id == Id);
 
             return getPbyID;
             //return (Product)_dbContext.Products.Find(x => x.Id == Id);

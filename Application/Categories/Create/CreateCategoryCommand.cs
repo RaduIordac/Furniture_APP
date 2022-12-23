@@ -1,5 +1,5 @@
 ﻿using Application.Categories;
-using Application.Parts;
+using Application.DTOs;
 using Domain;
 using MediatR;
 using System;

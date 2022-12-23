@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Parts
+namespace Application.DTOs
 {
     public class PartDto
     {
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public int QuantityInStock { get; set; }
         public decimal Price { get; set; }
-        public ICollection<Product>? Products { get; set; }
-        public ICollection<Category>? Categories { get; set; }
+        
+        
     }
 }

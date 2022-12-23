@@ -11,8 +11,9 @@ namespace Application
         {
             IEnumerable<Part> GetAllParts();
             Part GetPart(int id);
-            int Create(Part product);
-
+            int Create(Part part);
+            int Update(Part part);
+            int Delete(Part part);
 
     }
 }

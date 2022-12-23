@@ -24,6 +24,7 @@ namespace Application.Products.Create
                 //Price = request.Price,
                 Parts = (ICollection<Part>)request.Parts,
                 Categories = (ICollection<Category>)request.Categories,
+                Interest = request.Interest,
             };
 
             _productRepository.Create(product);
