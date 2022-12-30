@@ -1,5 +1,5 @@
 ﻿using Application;
-using Application.Products.Create;
+using Application.Products.Delete;
 using Application.Products.GetById;
 using Application.Products.Update;
 using Domain;
@@ -9,7 +9,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace FurnitureWebAPI.Controllers
 {
-    
+
     [Route("api/products")]
     [ApiController]
     public class ProductsController : Controller
@@ -25,16 +25,16 @@ namespace FurnitureWebAPI.Controllers
 
         [HttpGet(Name = "Get all products")]
         public ActionResult<List<Product>> GetAll()
-          {
+        {
             return Ok(_unitOfWork.ProductRepository.GetAll());
-            }
+        }
 
         [HttpPost(Name = "Create Product")]
-        public async Task<ActionResult> Create(CreateProductCommand command)
-          {
-           var result =await _mediatr.Send(command);
+        public async Task<ActionResult> Create(DeleteProductCommand command)
+        {
+            var result = await _mediatr.Send(command);
             return Ok(result);
-    }
+        }
         //[Route("{id}")]
         [HttpGet("{id}", Name = "Get Product By Id")]
         public async Task<ActionResult<Product>> GetByIDAsync(int id)
@@ -50,23 +50,30 @@ namespace FurnitureWebAPI.Controllers
         }
         //[Route("{name}")]
         [HttpGet("query/{name}", Name = "Get Product By Name")]
-        public ActionResult<Product> GetByName( string name)
+        public ActionResult<Product> GetByName(string name)
         {
             var result = _unitOfWork.ProductRepository.GetByName(name);
             return Json(result);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}", Name ="Update Product")]
         public async Task<ActionResult> Update(int id, UpdateProductCommand command)
         {
             command.Id = id;
             return Json(await _mediatr.Send(command));
         }
 
-        //public IActionresult index()
-        //{
-        //    return view();
-        //}
-    }
+        [HttpDelete("{id}", Name ="Delete Product")]
+
+        public async Task<ActionResult> Delete(int id, DeleteProductCommand command)
+        {
+            command.Id = id;
+            return Json(await _mediatr.Send(command));
+
+            //public IActionresult index()
+            //{
+            //    return view();
+            //}
+        }
 }
 
