@@ -13,8 +13,6 @@ namespace Application
 
         Category GetById(int Id);
 
-        Category GetByName(string Name);
-
         int Create(Category product);
 
         int Update(Category product);
