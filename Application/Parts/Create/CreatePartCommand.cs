@@ -14,7 +14,9 @@ namespace Application.Parts.Create
     {
         public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public ICollection<CategoryDto>? Categories { get; set; }
-        public ICollection<Product>? Products { get; set; }
+        public int QuantityInStock { get; set; }
+
+        //public ICollection<CategoryDto>? Categories { get; set; }
+        
     }
 }

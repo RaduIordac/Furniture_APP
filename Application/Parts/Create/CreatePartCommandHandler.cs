@@ -23,8 +23,9 @@ namespace Application.Parts.Create
             {
                 Name = request.Name,
                 Price = request.Price,
-                Products = request.Products,
-                Categories = (ICollection<Category>)request.Categories,
+                QuantityInStock = request.QuantityInStock,
+                //Products = request.Products,
+                //Categories = (ICollection<Category>)request.Categories,
             };
 
             _partRepository.Create(part);

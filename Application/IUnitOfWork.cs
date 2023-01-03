@@ -11,6 +11,8 @@ namespace Application
         public IProductRepository ProductRepository { get; }
         public IPartRepository PartRepository { get; }
 
+        public ICategoryRepository CategoryRepository { get; }
+
         Task Save();
     }
 }

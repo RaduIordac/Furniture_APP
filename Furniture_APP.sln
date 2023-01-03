@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{F939D294-6748-4048-8669-7B12B2A38617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureWebAPI", "FurnitureWebAPI\FurnitureWebAPI.csproj", "{08CE0787-1966-451E-BAB7-70D9BE02AA83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FurnitureWebAPI", "FurnitureWebAPI\FurnitureWebAPI.csproj", "{08CE0787-1966-451E-BAB7-70D9BE02AA83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationTests", "ApplicationTests\ApplicationTests.csproj", "{C02866DE-F2C6-4BB4-978A-DE92285A0344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{08CE0787-1966-451E-BAB7-70D9BE02AA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08CE0787-1966-451E-BAB7-70D9BE02AA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08CE0787-1966-451E-BAB7-70D9BE02AA83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C02866DE-F2C6-4BB4-978A-DE92285A0344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02866DE-F2C6-4BB4-978A-DE92285A0344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02866DE-F2C6-4BB4-978A-DE92285A0344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02866DE-F2C6-4BB4-978A-DE92285A0344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

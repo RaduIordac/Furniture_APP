@@ -9,15 +9,15 @@ namespace Application
 {
     public interface ICategoryRepository
     {
-        IEnumerable<Category> GetAll();
+        IEnumerable<Category> GetAllCategories();
 
         Category GetById(int Id);
 
-        int Create(Category product);
+        int Create(Category category);
 
-        int Update(Category product);
+        int Update(Category category);
 
-        int Delete(Category product);
+        int Delete(Category category);
 
     }
 }

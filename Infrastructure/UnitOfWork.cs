@@ -12,16 +12,18 @@ namespace Infrastructure
         private readonly FurnitureDbContext _dataContext;
         public UnitOfWork(FurnitureDbContext dataContext,
                             IProductRepository productRepository, 
-                            IPartRepository partRepository)
+                            IPartRepository partRepository,
+                            ICategoryRepository categoryRepository)
         {
             _dataContext = dataContext;
             ProductRepository = productRepository;
             PartRepository = partRepository;
+            CategoryRepository = categoryRepository;
         }
 
         public IProductRepository ProductRepository { get; private set; }
         public IPartRepository PartRepository { get; private set; }
-
+        public ICategoryRepository CategoryRepository { get; private set; }
 
 
         public async Task Save()

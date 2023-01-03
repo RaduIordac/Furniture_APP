@@ -15,7 +15,7 @@ namespace Application.Categories.Create
     {
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
-        public ICollection<PartDto>? Categories { get; set; }
-        public ICollection<Product>? Products { get; internal set; }
+        //public ICollection<PartDto>? Categories { get; set; }
+        //public ICollection<Product>? Products { get; internal set; }
     }
 }
