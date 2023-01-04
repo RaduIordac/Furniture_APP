@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,6 @@ namespace Domain
         public Client? Client { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
+        public decimal TotalAmount => OrderItems.Sum(p => p.Price);
     }
 }
