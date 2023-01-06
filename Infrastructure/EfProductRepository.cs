@@ -1,4 +1,5 @@
 ﻿using Application;
+using Application.DTOs;
 using Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -47,7 +48,7 @@ namespace Infrastructure
 
         public IEnumerable<Product> GetAll()
         {
-            return _dbContext.Products.ToList();
+            return _dbContext.Products;
         }
 
         public Product GetById(int Id)
@@ -58,7 +59,7 @@ namespace Infrastructure
                 .Include(x => x.Categories)
                 .FirstOrDefault(x => x.Id == Id);
 
-            return getPbyID;
+           return getPbyID;
             //return (Product)_dbContext.Products.Find(x => x.Id == Id);
             //throw new NotImplementedException();                
 
