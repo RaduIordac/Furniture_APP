@@ -42,8 +42,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
     app.UseSwagger();
     app.UseSwaggerUI();
-
-    //app.UseSpaStaticFiles();
 }
 
 app.UseHttpsRedirection();
@@ -55,19 +53,6 @@ app.MapControllers();
 
 app.UseStaticFiles();
 app.UseRouting();
-
-app.UseSpa(spa =>
-{
-    // To learn more about options for serving an Angular SPA from ASP.NET Core,
-    // see https://go.microsoft.com/fwlink/?linkid=864501
-
-    spa.Options.SourcePath = "ClientApp";
-
-    if (app.Environment.IsDevelopment())
-    {
-        spa.UseAngularCliServer(npmScript: "start");
-    }
-});
 
 app.MapControllerRoute(
     name: "default",
