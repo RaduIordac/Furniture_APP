@@ -2,9 +2,9 @@
 }
 
 .home-class {
-  background: url("../static/images/Home-back.jpg") !important;
-  height: 100%;
+  background-image: url("../static/images/Home-back.jpg") !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  background-size:100% 100%;
 }

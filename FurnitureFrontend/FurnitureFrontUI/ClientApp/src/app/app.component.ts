@@ -13,21 +13,21 @@ export class AppComponent implements OnInit, AfterViewInit{
   constructor	(public matDialog: MatDialog){}
   
   ngAfterViewInit(): void {
-    this.openModal();
+    // this.openModal();
   }
 
   ngOnInit(): void {
     // this.openModal();
   }
   
-  openModal() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.id = "modal-component";
-    dialogConfig.height = "350px";
-    dialogConfig.width = "600px";
-    const matDialog =this.matDialog.open(WelcomeModalComponent, dialogConfig);
-  }
+  // openModal() {
+  //   const dialogConfig = new MatDialogConfig();
+  //   dialogConfig.disableClose = true;
+  //   dialogConfig.id = "modal-component";
+  //   dialogConfig.height = "350px";
+  //   dialogConfig.width = "600px";
+  //   const matDialog =this.matDialog.open(WelcomeModalComponent, dialogConfig);
+  // }
 }
 
 

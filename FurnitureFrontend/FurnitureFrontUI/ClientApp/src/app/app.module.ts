@@ -20,6 +20,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { SidenavComponentComponent } from './sidenav-component/sidenav-component.component';
+import { CarousselComponent } from './caroussel/caroussel.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SidenavComponentComponent } from './sidenav-component/sidenav-component
     ContactFormComponent,
     FeedbackFormComponent,
     LoginComponentComponent,
-    SidenavComponentComponent
+    SidenavComponentComponent,
+    CarousselComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
