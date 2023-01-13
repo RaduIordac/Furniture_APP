@@ -4,11 +4,12 @@
   <mat-grid-list [cols]="3"> 
     <mat-grid-tile >
       <mat-grid-tile-header>
-        <h3>Contact us</h3>
+        <h3 [routerLink]="['/contact-form']" routerLinkActive="router-link-active" >Contact us</h3>
       </mat-grid-tile-header>
       Street,<br/>
       City,<br/>
       Country.
+      <div><a [routerLink]="['/contact-form']" routerLinkActive="router-link-active">contact-form</a></div>
     </mat-grid-tile> 
     <mat-grid-tile>
       <mat-grid-tile-header>

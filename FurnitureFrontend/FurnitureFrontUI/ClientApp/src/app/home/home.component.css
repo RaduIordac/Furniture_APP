@@ -1,0 +1,10 @@
+#home {
+}
+
+.home-class {
+  background: url("../static/images/Home-back.jpg") !important;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

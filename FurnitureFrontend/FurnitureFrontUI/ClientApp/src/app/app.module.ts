@@ -14,8 +14,12 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProductsComponent } from './products/products.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialog, MatDialogModule, MatDividerModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatDialog, MatDialogModule, MatDividerModule, MatFormFieldModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
+import { LoginComponentComponent } from './login-component/login-component.component';
+import { SidenavComponentComponent } from './sidenav-component/sidenav-component.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
     FetchDataComponent,
     ProductsComponent,
     FooterComponent,
-    WelcomeModalComponent
+    WelcomeModalComponent,
+    ContactFormComponent,
+    FeedbackFormComponent,
+    LoginComponentComponent,
+    SidenavComponentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -43,14 +51,17 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatDividerModule,
     MatGridListModule,
     MatDialogModule,
-    
+    MatFormFieldModule,
+        
     
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full', title: 'FurnitureAppShop'},
       { path: 'counter', component: CounterComponent, title: " Counter" },
       { path: 'fetch-data', component: FetchDataComponent,title: "Weather data" },
       { path: 'products', component: ProductsComponent, title: "Products display" },
-      
+      { path: 'contact-form', component: ContactFormComponent, title: "Contact Form" },
+
+      { path: '**', redirectTo: '' },
     ])
   ],
   providers: [],
