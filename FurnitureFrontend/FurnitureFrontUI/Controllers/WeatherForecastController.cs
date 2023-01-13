@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FurnitureWebAPI;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FurnitureFrontUI.Controllers;
 
@@ -19,11 +20,11 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<WeatherForecast> Get()
+    public IEnumerable<WeatherForecastt> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        return Enumerable.Range(1, 5).Select(index => new WeatherForecastt
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+            Date = DateTime.Now.AddDays(index),
             TemperatureC = Random.Shared.Next(-20, 55),
             Summary = Summaries[Random.Shared.Next(Summaries.Length)]
         })

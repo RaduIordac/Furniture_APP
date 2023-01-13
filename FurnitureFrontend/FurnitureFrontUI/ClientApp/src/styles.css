@@ -1,8 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
 /* Provide sufficient contrast against white background */
-a {
+/* a {
   color: #0366d6;
+}
+
+p {
+  background-color: #5240a5;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -10,11 +14,17 @@ a {
 }
 
 code {
-  color: #e01a76;
+  color: #261555;
 }
 
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+} */
+
+mat-dialog-container#modal-component {
+  border: 3px solid #262626;
+  border-radius: 11px;
+  background-color: #1a1a1a;
 }

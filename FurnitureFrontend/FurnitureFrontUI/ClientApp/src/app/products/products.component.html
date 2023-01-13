@@ -1,0 +1,24 @@
+<h1 id="tableLabel">Products</h1>
+
+<p>This component demonstrates fetching Products from the server.</p>
+
+<p *ngIf="!products?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products.length">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price </th>
+      <th>Date Created</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.created }}</td>
+      
+    </tr>
+  </tbody>
+</table>

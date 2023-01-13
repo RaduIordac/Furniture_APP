@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Application.Categories.Create;
 
-namespace FurnitureWebAPI.Controllers
+namespace FurnitureWebAPI.Controllerss
 {
     [Route("api/categories")]
     [ApiController]

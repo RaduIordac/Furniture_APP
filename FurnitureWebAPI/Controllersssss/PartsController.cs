@@ -4,7 +4,7 @@ using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FurnitureWebAPI.Controllers
+namespace FurnitureWebAPI.Controllersss
 {
     
     [Route("api/parts")]

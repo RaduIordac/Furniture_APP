@@ -1,8 +1,8 @@
 namespace FurnitureFrontUI;
 
-public class WeatherForecast
+public class WeatherForecastt
 {
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
 
     public int TemperatureC { get; set; }
 

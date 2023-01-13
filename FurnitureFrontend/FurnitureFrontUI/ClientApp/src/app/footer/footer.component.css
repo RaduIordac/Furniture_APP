@@ -1,0 +1,4 @@
+:host ::ng-deep .Pt{
+    background-color: red !important;
+    color: rgb(14, 68, 116) !important;
+}

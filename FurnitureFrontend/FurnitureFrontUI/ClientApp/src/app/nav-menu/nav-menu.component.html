@@ -23,8 +23,7 @@
           <li
             class="nav-item"
             [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
+            [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
@@ -34,9 +33,25 @@
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
-            >
+              >Fetch data</a>
           </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/products']">Products</a>
+          </li>
+          <li><div class="container-fluid">
+            <form class="d-flex input-group w-auto">
+              <input
+                type="search"
+                class="form-control rounded"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <span class="input-group-text border-0" id="search-addon">
+                <i class="fas fa-search"></i>
+              </span>
+            </form>
+          </div>
+        </li>
         </ul>
       </div>
     </div>
