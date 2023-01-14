@@ -1,8 +1,9 @@
-<h1>{{title}}</h1>
+
 <body>
   
   <app-nav-menu></app-nav-menu>
-  <app-sidenav-component></app-sidenav-component>
+  <h1>{{title}}</h1>
+  <div class="container"><app-sidenav-component class="container" mr-5></app-sidenav-component></div>
   <main class="container">
     <div>
     <router-outlet></router-outlet>

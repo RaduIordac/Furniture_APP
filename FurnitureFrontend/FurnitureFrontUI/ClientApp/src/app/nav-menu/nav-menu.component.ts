@@ -15,4 +15,9 @@ export class NavMenuComponent {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
+
+  changeText: boolean;
+    constructor() {
+       this.changeText = false;
+    }
 }

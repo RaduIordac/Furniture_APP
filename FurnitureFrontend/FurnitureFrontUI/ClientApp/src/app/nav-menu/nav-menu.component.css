@@ -17,3 +17,16 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
+.cart-item-nr{
+  position: relative;
+  min-height: 25px;
+  min-width: 25px;
+  border-radius: 70%;
+  font-size:1em;
+  background: rgb(154, 188, 202);
+  color: rgb(8, 15, 8);
+  text-align: center;
+  top: -40px;
+  right: -22px;
+  margin-right: 4em;
+}

@@ -51,8 +51,13 @@
         
           <div class="container-fluid d-sm-inline-flex justify-content-end ">
             <li class="nav-item" [routerLinkActive]="['link-active']" mr-2>
-              <a class="nav-link text-dark" [routerLink]="['/fetch-data']">
-              <mat-icon >shopping_cart</mat-icon>
+              <a class="nav-link text-dark position-relative" [routerLink]="['/fetch-data']">
+              <mat-icon font-size="30px">shopping_cart</mat-icon>
+              <div class="cart-item-nr" (mouseover)="changeText=true" (mouseout)="changeText=false">0
+                <span *ngIf="!changeText"></span>
+                <span *ngIf="changeText">Nr of items in cart</span>
+
+              </div>
               </a>
             </li>
             
