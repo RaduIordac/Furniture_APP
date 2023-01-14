@@ -54,7 +54,7 @@ import { CarousselComponent } from './caroussel/caroussel.component';
     MatGridListModule,
     MatDialogModule,
     MatFormFieldModule,
-        
+       
     
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full', title: 'FurnitureAppShop'},
