@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';  
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,6 +20,15 @@ import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { SidenavComponentComponent } from './sidenav-component/sidenav-component.component';
 import { CarousselComponent } from './caroussel/caroussel.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactFormServiceService } from './contact-form-service.service';
 
 
 @NgModule({
@@ -54,6 +62,17 @@ import { CarousselComponent } from './caroussel/caroussel.component';
     MatGridListModule,
     MatDialogModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatIconModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatButtonModule,
        
     
     RouterModule.forRoot([
@@ -66,7 +85,7 @@ import { CarousselComponent } from './caroussel/caroussel.component';
       { path: '**', redirectTo: '' },
     ])
   ],
-  providers: [],
+  providers: [ContactFormServiceService],
   bootstrap: [AppComponent],
   entryComponents: [WelcomeModalComponent]
 })

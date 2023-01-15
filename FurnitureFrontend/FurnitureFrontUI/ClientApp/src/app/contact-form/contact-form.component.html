@@ -1,1 +1,60 @@
 <p>contact-form works!</p>
+
+<h3>Contact Form</h3>
+<hr>
+<p>Please contact us using this form below. We will get back to you as soon as possible. Thank you.</p>
+<div class="form">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="form-group">
+
+        <mat-form-field appearance="fill">
+            <mat-label for="Fullname">Fullname</mat-label>
+            <input matInput
+                   class="form-control"
+                   type="text"
+                   ngModel
+                   name="Fullname"
+                   #fullname="ngModel"
+                   required:true
+                   minlength="3"
+                   placeholder="Please enter full name!"
+                   >
+                   
+            <mat-error *ngIf="!fullname.valid">Name is invalid</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label for="email">Email</mat-label>
+            <input matInput
+                   class="form-control"
+                   type="text"
+                   ngModel
+                   name="email"
+                   #email="ngModel"
+                   required:true
+                   email>
+            <mat-error *ngIf="!email.valid">Email is invalid</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label for="Department">For department(s):</mat-label>
+            <hr>
+            <mat-select 
+            [formControl] = "departmentControl"
+            required:true
+            [multiple]="true"
+            >
+            <mat-option *ngFor="let dep of departmentList" [value]="dep">{{dep}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <hr>
+            <mat-label for="Message">Enter your message:</mat-label>
+            <textarea matInput placeholder="Your text here!"></textarea>
+        </mat-form-field>
+            
+        <hr>
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+        
+          
+    </form>
+</div>

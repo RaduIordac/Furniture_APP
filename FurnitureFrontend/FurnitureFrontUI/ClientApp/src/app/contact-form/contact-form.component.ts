@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component} from '@angular/core';
+import { FormControl, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,10 +7,14 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./contact-form.component.css']
 })
 
-export class ContactFormComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+export class ContactFormComponent  {
+  
+  onSubmit(form: NgForm) {
+    console.log(form);
   }
 
-  
+  departmentControl = new FormControl('');
+  departmentList: string[] = ['Sales', 'Marketing', 'Purchasing', 'Logistics', 'Production', 'Management'];
+  toppings = new FormControl('');
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 }
