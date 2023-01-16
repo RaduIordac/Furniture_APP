@@ -3,30 +3,37 @@
 /* Provide sufficient contrast against white background */
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-/* a {
+a {
   color: #0366d6;
 }
 
+div{
+  border: 0.5px black;
+  background: transparent;
+  // background-color: rgb(213, 228, 146);
+}
+
 p {
-  background-color: #5240a5;
+  background-color: #a3ce7f;
+  background: transparent;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-code {
-  color: #261555;
-}
+// code {
+//   color: #261555;
+// }
 
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
-} */
+}
 
-// mat-dialog-container#modal-component {
-//   border: 3px solid #262626;
-//   border-radius: 11px;
-//   background-color: #1a1a1a;
-// }
+mat-dialog-container#modal-component {
+  border: 3px solid #262626;
+  border-radius: 11px;
+  background-color: #1a1a1a;
+}

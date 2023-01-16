@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';  
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +29,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactFormServiceService } from './contact-form-service.service';
+import { PublicClientApplication } from '@azure/msal-browser';
+import { MsalModule } from '@azure/msal-angular';
+import { InteractionType } from '@azure/msal-browser/dist/utils/BrowserConstants';
+import { MsalInterceptor } from '@azure/msal-angular/msal.interceptor';
+import { MsalGuard } from '@azure/msal-angular/msal.guard';
+import { MsalRedirectComponent } from '@azure/msal-angular/msal.redirect.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -57,6 +65,7 @@ import { ContactFormServiceService } from './contact-form-service.service';
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
+    MatListModule,
     MatIconModule,
     MatDividerModule,
     MatGridListModule,
@@ -73,7 +82,32 @@ import { ContactFormServiceService } from './contact-form-service.service';
     MatSelectModule,
     MatRadioModule,
     MatButtonModule,
-       
+    MatCardModule,
+    MsalModule.forRoot(new PublicClientApplication(
+      {
+        auth:{
+          clientId:"c6560dac-6885-43a6-9964-3280f79232a3",
+          redirectUri:"http://localhost:4200",
+          authority:"https://login.microsoftonline.com/544f8ac3-ce4c-47d1-9b72-284ac54b8d1c"
+        },
+        cache:{
+          cacheLocation:"localStorage",
+          storeAuthStateInCookie:false
+        }
+      }
+    ),
+    {
+      interactionType:InteractionType.Redirect,
+      authRequest:{
+        scopes:["user.read"]
+      }
+    },{
+      interactionType:InteractionType.Redirect,
+      protectedResourceMap:new Map([
+        ["htttps://graph.microsoft.com/v1.0/me",["user.R]ead"]]
+      ])
+    }
+    ),   
     
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full', title: 'FurnitureAppShop'},
@@ -85,8 +119,16 @@ import { ContactFormServiceService } from './contact-form-service.service';
       { path: '**', redirectTo: '' },
     ])
   ],
-  providers: [ContactFormServiceService],
-  bootstrap: [AppComponent],
+  providers: [
+    ContactFormServiceService,
+    {
+    provide:HTTP_INTERCEPTORS,
+    useClass:MsalInterceptor,
+    multi:true
+    },
+    MsalGuard
+],
+  bootstrap: [AppComponent,MsalRedirectComponent],
   entryComponents: [WelcomeModalComponent]
 })
 export class AppModule { }
