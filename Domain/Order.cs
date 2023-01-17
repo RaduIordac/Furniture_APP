@@ -11,9 +11,10 @@ namespace Domain
     {
         public int Id { get; set; }
 
+        public User UserName { get; set; }
+
         public DateTime OrderDate { get; set; }
 
-        public Client? Client { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
         public decimal TotalAmount => OrderItems.Sum(p => p.Price);

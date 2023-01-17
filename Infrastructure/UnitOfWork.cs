@@ -26,7 +26,6 @@ namespace Infrastructure
         public IProductRepository ProductRepository { get; private set; }
         public IPartRepository PartRepository { get; private set; }
         public ICategoryRepository CategoryRepository { get; private set; }
-
         public IUserRepository UserRepository { get; private set; }
 
 

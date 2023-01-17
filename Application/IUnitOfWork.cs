@@ -13,6 +13,8 @@ namespace Application
 
         public ICategoryRepository CategoryRepository { get; }
 
+        public IUserRepository UserRepository { get; }
+
         Task Save();
     }
 }

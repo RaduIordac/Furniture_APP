@@ -46,16 +46,7 @@ namespace Infrastructure
             //return user.Id;
             return 0;
         }
-
-        
-
-        
-
-        public int Update(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        
+                              
+                
     }
 }
