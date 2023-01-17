@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Infrastructure.Migrations
+namespace FurnitureWebAPI.Migrations
 {
     [DbContext(typeof(FurnitureDbContext))]
-    [Migration("20230117103220_OrderUserChange")]
-    partial class OrderUserChange
+    [Migration("20230117113658_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -180,10 +180,6 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -205,10 +201,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
-
-                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("PartProduct", b =>
@@ -224,13 +216,6 @@ namespace Infrastructure.Migrations
                     b.HasIndex("ProductsId");
 
                     b.ToTable("PartProduct");
-                });
-
-            modelBuilder.Entity("Domain.Client", b =>
-                {
-                    b.HasBaseType("Domain.User");
-
-                    b.HasDiscriminator().HasValue("Client");
                 });
 
             modelBuilder.Entity("CategoryPart", b =>
