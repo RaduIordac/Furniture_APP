@@ -13,17 +13,21 @@ namespace Infrastructure
         public UnitOfWork(FurnitureDbContext dataContext,
                             IProductRepository productRepository, 
                             IPartRepository partRepository,
-                            ICategoryRepository categoryRepository)
+                            ICategoryRepository categoryRepository,
+                            IUserRepository userRepository)
         {
             _dataContext = dataContext;
             ProductRepository = productRepository;
             PartRepository = partRepository;
             CategoryRepository = categoryRepository;
+            UserRepository = userRepository;
         }
 
         public IProductRepository ProductRepository { get; private set; }
         public IPartRepository PartRepository { get; private set; }
         public ICategoryRepository CategoryRepository { get; private set; }
+
+        public IUserRepository UserRepository { get; private set; }
 
 
         public async Task Save()

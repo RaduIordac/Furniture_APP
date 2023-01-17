@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    interface User
+    public class User
     {
-        
-     }
+        public int Id { get; set; }
+
+        public string? FirstName { get; set; }
+
+        public string? LastName { get; set; }
+        public string? Username => FirstName + LastName[0];
+        public string? Password { get; set; }
+        public string? Email { get; set; }
+
+        public string? Picture { get; set; }
+        public bool IsAdmin { get; set; }
+
+    }
 }

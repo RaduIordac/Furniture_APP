@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';  
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
@@ -37,6 +37,8 @@ import { MsalGuard } from '@azure/msal-angular/msal.guard';
 import { MsalRedirectComponent } from '@azure/msal-angular/msal.redirect.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
+import { UserProfileComponent } from './userstuff/user-profile/user-profile.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import {MatListModule} from '@angular/material/list';
     FeedbackFormComponent,
     LoginComponentComponent,
     SidenavComponentComponent,
-    CarousselComponent
+    CarousselComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -117,7 +120,7 @@ import {MatListModule} from '@angular/material/list';
       { path: 'contact-form', component: ContactFormComponent, title: "Contact Form" },
 
       { path: '**', redirectTo: '' },
-    ])
+    ]), AppRoutingModule
   ],
   providers: [
     ContactFormServiceService,
