@@ -73,6 +73,23 @@
             </span>
           </form>
         </div>
+        <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-center"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow ">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link text-dark" [routerLink]="['/login']">Log in</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/register']"
+              >Register</a>
+          </li>
+          </ul>
+          </div>
       
     </ul>
       </div>

@@ -31,14 +31,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactFormServiceService } from './contact-form-service.service';
 import { PublicClientApplication } from '@azure/msal-browser';
 import { MsalModule } from '@azure/msal-angular';
-import { InteractionType } from '@azure/msal-browser/dist/utils/BrowserConstants';
-import { MsalInterceptor } from '@azure/msal-angular/msal.interceptor';
-import { MsalGuard } from '@azure/msal-angular/msal.guard';
-import { MsalRedirectComponent } from '@azure/msal-angular/msal.redirect.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatListModule} from '@angular/material/list';
+import { InteractionType } from '@azure/msal-browser';
+import { MsalInterceptor } from '@azure/msal-angular';
+import { MsalGuard } from '@azure/msal-angular';
+import { MsalRedirectComponent } from '@azure/msal-angular';
+import { MatCardModule} from '@angular/material/card';
+import { MatListModule} from '@angular/material/list';
 import { UserProfileComponent } from './userstuff/user-profile/user-profile.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { UserRegisterComponent } from './userstuff/user-register/user-register.component';
+
 
 
 @NgModule({
@@ -56,7 +58,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     LoginComponentComponent,
     SidenavComponentComponent,
     CarousselComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -107,7 +110,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     },{
       interactionType:InteractionType.Redirect,
       protectedResourceMap:new Map([
-        ["htttps://graph.microsoft.com/v1.0/me",["user.R]ead"]]
+        ["htttps://graph.microsoft.com/v1.0/me",["user.read"]]
       ])
     }
     ),   
@@ -118,6 +121,11 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
       { path: 'fetch-data', component: FetchDataComponent,title: "Weather data" },
       { path: 'products', component: ProductsComponent, title: "Products display" },
       { path: 'contact-form', component: ContactFormComponent, title: "Contact Form" },
+      { path: 'login', component: LoginComponentComponent, title: "Login Form" },
+      { path: 'register', component: UserRegisterComponent, title: "Register Form" },
+      { path: 'user', component: UserProfileComponent, title: "User profile" },
+      
+
 
       { path: '**', redirectTo: '' },
     ]), AppRoutingModule

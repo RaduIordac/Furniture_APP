@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-userId: number = null;
-private sub: Subscription
+
 
   ngOnInit(): void {
     throw new Error('Method not implemented.');
