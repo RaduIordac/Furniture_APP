@@ -19,8 +19,7 @@ export class WelcomeModalComponent implements OnInit {
     this.router.navigateByUrl("/login");
   }
 
-  // If the user clicks the cancel button a.k.a. the go back button, then\
-  // just close the modal
+  
   closeModal() {
     this.dialogRef.close();
   }

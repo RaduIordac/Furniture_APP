@@ -46,7 +46,7 @@
 
         
       </div>
-      <div>
+      <div class="toolbar-spacer">
         <ul class="navbar-nav flex-grow ">
         
           <div class="container-fluid d-sm-inline-flex justify-content-end ">
@@ -74,7 +74,7 @@
           </form>
         </div>
         <div
-        class="navbar-collapse collapse d-sm-inline-flex justify-content-center"
+        class="toolbar-spacer justify-content-center"
         [ngClass]="{ show: isExpanded }"
       >
         <ul class="navbar-nav flex-grow ">
@@ -82,7 +82,9 @@
             class="nav-item"
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/login']">Log in</a>
+            <a mat-button [routerLink]="['/login']">Profile</a>
+            <button mat-raised-button *ngIf="!isUserLoggedIn" (click)="login()" >Login</button>
+            <button mat-raised-button *ngIf="isUserLoggedIn" (click="logout()">Logout</button>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/register']"
@@ -95,6 +97,9 @@
       </div>
     </div>
   </nav>
+  <mat-sidenav-container>
+    <p>sidenav works</p>
+  </mat-sidenav-container>
   
 </header>
 

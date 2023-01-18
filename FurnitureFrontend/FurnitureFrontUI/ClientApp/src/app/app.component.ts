@@ -10,6 +10,9 @@ import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';
 
 export class AppComponent implements OnInit, AfterViewInit{
   title = 'FurnitureAppShop';
+  
+
+
   constructor	(public matDialog: MatDialog){}
   
   ngAfterViewInit(): void {
@@ -28,6 +31,8 @@ export class AppComponent implements OnInit, AfterViewInit{
   //   dialogConfig.width = "600px";
   //   const matDialog =this.matDialog.open(WelcomeModalComponent, dialogConfig);
   // }
+
+  
 }
 
 

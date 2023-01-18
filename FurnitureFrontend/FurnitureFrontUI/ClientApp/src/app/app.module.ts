@@ -123,7 +123,7 @@ import { UserRegisterComponent } from './userstuff/user-register/user-register.c
       { path: 'contact-form', component: ContactFormComponent, title: "Contact Form" },
       { path: 'login', component: LoginComponentComponent, title: "Login Form" },
       { path: 'register', component: UserRegisterComponent, title: "Register Form" },
-      { path: 'user', component: UserProfileComponent, title: "User profile" },
+      { path: 'user/:id', component: UserProfileComponent, title: "User profile",canActivate:[MsalGuard] },
       
 
 

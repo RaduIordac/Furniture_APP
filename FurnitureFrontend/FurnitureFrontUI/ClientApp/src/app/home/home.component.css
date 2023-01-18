@@ -8,3 +8,15 @@
   background-size: contain;
   background-size:100% 100%;
 }
+
+.title_card{
+  width: 80px;
+  height: 80px;
+  margin: 20%;
+}
+
+.center{
+  margin: auto;
+  width: fit-content;
+  padding: 5px;
+}

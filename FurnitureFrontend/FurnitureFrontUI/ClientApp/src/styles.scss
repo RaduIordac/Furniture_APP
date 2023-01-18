@@ -3,8 +3,17 @@
 /* Provide sufficient contrast against white background */
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-a {
-  color: #0366d6;
+
+html,body{
+  height: 80%;
+}
+
+.toolbar-spacer{
+  flex: 1 1 auto;
+}
+
+a.title {
+  color: #a0c735;
 }
 
 div{
@@ -27,7 +36,7 @@ p {
 // }
 
 .btn-primary {
-  color: #fff;
+  color: rgb(197, 20, 79);
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
