@@ -1,4 +1,5 @@
 #home {
+  width: auto;
 }
 
 .home-class {
@@ -21,7 +22,8 @@
   padding: 5px;
 }
 
-:host {
+/* :host {
   display: inline;
-  /* padding: 100px; */
- }
+  /* padding: 100px; 
+}*/
+ 

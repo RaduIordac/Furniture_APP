@@ -1,36 +1,35 @@
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+.example-container {
+  height: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
-
-.mat-toolbar-single-row {
-  height: 100px;
-  text-align: justify;
-  display: unset;
-    box-sizing: border-box;
-    padding: 0 10px;
-    width: 100%;
-    /* flex-direction: row;
-    align-items: center; */
-    white-space: inherit;
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
-
-.mat-spacer {
-  
+.example-sidenav {
+   user-select: none;
 }
-
-html {
-  font-size: 14px;
+.full-width {
+  width: 100%;
 }
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.menu-button {
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
 }
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.menu-button.rotated {
+  transform: rotate(180deg);
+}
+.submenu {
+  overflow-y: hidden;
+  transition: transform 300ms ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  padding-left: 30px;
+}
+.submenu.expanded {
+  transform: scaleY(1);
 }
 
 .cart-item-nr{

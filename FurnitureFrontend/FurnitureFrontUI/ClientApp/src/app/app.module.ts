@@ -112,7 +112,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     },{
       interactionType:InteractionType.Redirect,
       protectedResourceMap:new Map([
-        ["htttps://graph.microsoft.com/v1.0/me",["user.read"]]
+        ["https://graph.microsoft.com/v1.0/me",["user.read"]]
       ])
     }
     ),   
@@ -125,7 +125,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       { path: 'contact-form', component: ContactFormComponent, title: "Contact Form" },
       { path: 'login', component: LoginComponentComponent, title: "Login Form" },
       { path: 'register', component: UserRegisterComponent, title: "Register Form" },
-      { path: 'user/:id', component: UserProfileComponent, title: "User profile",canActivate:[MsalGuard] },
+      { path: 'user', component: UserProfileComponent, title: "User profile",canActivate:[MsalGuard] },
       
 
 

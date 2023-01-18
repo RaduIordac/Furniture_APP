@@ -1,8 +1,12 @@
-import { Component, Inject, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 import { MsalBroadcastService, MsalGuardConfiguration, MsalService, MSAL_GUARD_CONFIG } from '@azure/msal-angular';
-import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
+import { InteractionStatus, PopupRequest, RedirectRequest } from '@azure/msal-browser';
 import { filter, Subject, takeUntil } from 'rxjs';
+import { AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+
+
+
 
 @Component({
   selector: 'app-nav-menu',
@@ -10,45 +14,78 @@ import { filter, Subject, takeUntil } from 'rxjs';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent implements OnInit, OnDestroy {
+  @ViewChild('sidenav') sidenav: MatSidenav | undefined;
+  isExpanded = true;
+  showSubmenu: boolean = false;
   isShowing = false;
-  isExpanded = false;
+  showSubSubMenu: boolean = false;
+  
   isUserLoggedIn : boolean = false;
   changeText: boolean;
   private readonly _destroy= new Subject<void>();
+  title = 'FurnitureAppShop';
+  isIframe = false;
+  loginDisplay = false;
+  private readonly _destroying$ = new Subject<void>();
 
-  constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConf:MsalGuardConfiguration, 
-  private msalBroadcastServ: MsalBroadcastService,
-  private authServ: MsalService){
+
+  constructor(@Inject(
+    MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
+   matDialog: MatDialog, 
+   private authService: MsalService, 
+   private broadcastService: MsalBroadcastService){
     this.changeText = false;
   }
  
     
   ngOnInit(): void {
-    this.msalBroadcastServ.inProgress$.pipe
-    (filter((interactionStatus:InteractionStatus) => 
-    interactionStatus == InteractionStatus.None),
-    takeUntil(this._destroy))
-    .subscribe(x =>{
-      this.isUserLoggedIn = this.authServ.instance.getAllAccounts().length>0
+    this.isIframe = window !== window.parent && !window.opener;
+    this.broadcastService.inProgress$
+    .pipe(
+      filter((status: InteractionStatus) => status === InteractionStatus.None),
+      takeUntil(this._destroying$)
+    )
+    .subscribe(() => {
+      this.setLoginDisplay();
     })
   }
   ngOnDestroy(): void {
-    this._destroy.next(undefined);
-    this._destroy.complete();
+    this._destroying$.next(undefined);
+    this._destroying$.complete();
   }
 
-  login(){
-    if(this.msalGuardConf.authRequest){
-      this.authServ.loginRedirect({...this.msalGuardConf.authRequest} as RedirectRequest)
-    }
-    else{
-      this.authServ.loginRedirect();
+  login() {
+    if (this.msalGuardConfig.authRequest){
+      this.authService.loginPopup({...this.msalGuardConfig.authRequest} as PopupRequest)
+        .subscribe({
+          next: (result) => {
+            console.log(result);
+            this.setLoginDisplay();
+          },
+          error: (error) => console.log(error)
+        });
+    } else {
+      this.authService.loginPopup()
+        .subscribe({
+          next: (result) => {
+            console.log(result);
+            this.setLoginDisplay();
+          },
+          error: (error) => console.log(error)
+        });
     }
   }
 
-  logout(){
-    this.authServ.logoutRedirect();
+  logout() { // Add log out function here
+    this.authService.logoutRedirect({
+      postLogoutRedirectUri: 'http://localhost:4200'
+    });
   }
+
+  setLoginDisplay() {
+    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
+  }
+  
 
   collapse() {
     this.isExpanded = false;
@@ -58,4 +95,17 @@ export class NavMenuComponent implements OnInit, OnDestroy {
     this.isExpanded = !this.isExpanded;
   }
 
+  
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
 }

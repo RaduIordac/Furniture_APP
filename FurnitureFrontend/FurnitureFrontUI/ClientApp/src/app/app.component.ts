@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
-import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';
-import { MsalBroadcastService, MsalGuardConfiguration, MsalService, MSAL_GUARD_CONFIG } from '@azure/msal-angular';
-import { filter, Subject, takeUntil } from 'rxjs';
-import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
+// import { MatDialog, MatDialogConfig } from '@angular/material';
+// import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';
+// import { MsalBroadcastService, MsalGuardConfiguration, MsalService, MSAL_GUARD_CONFIG } from '@azure/msal-angular';
+// import { filter, Subject, takeUntil } from 'rxjs';
+// import { InteractionStatus, PopupRequest, RedirectRequest } from '@azure/msal-browser';
 
 
 @Component({
@@ -12,17 +12,14 @@ import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit, AfterViewInit, OnDestroy{
+export class AppComponent implements OnInit, AfterViewInit{
   title = 'FurnitureAppShop';
   isIframe = false;
-  loginDisplay = false;
-  private readonly _destroying$ = new Subject<void>();
+  
+  
 
-  constructor	(@Inject(
-    MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
-   matDialog: MatDialog, 
-   private authService: MsalService, 
-   private broadcastService: MsalBroadcastService){}
+
+  constructor	(){}
   
   ngAfterViewInit(): void {
     // this.openModal();
@@ -30,27 +27,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy{
 
   ngOnInit(): void {
     // this.openModal();
-    this.isIframe = window !== window.parent && !window.opener;
-    this.broadcastService.inProgress$
-    .pipe(
-      filter((status: InteractionStatus) => status === InteractionStatus.None),
-      takeUntil(this._destroying$)
-    )
-    .subscribe(() => {
-      this.setLoginDisplay();
-    })
+    
   }
-  login() {
-    if (this.msalGuardConfig.authRequest){
-      this.authService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
-    } else {
-      this.authService.loginRedirect();
-    }
-  }
+  
+}
 
-  setLoginDisplay() {
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
-  }
   
   // openModal() {
   //   const dialogConfig = new MatDialogConfig();
@@ -61,10 +42,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy{
   //   const matDialog =this.matDialog.open(WelcomeModalComponent, dialogConfig);
   // }
 
-  ngOnDestroy(): void {
-    this._destroying$.next(undefined);
-    this._destroying$.complete();
-  }
-}
+  
+
 
 
