@@ -4,15 +4,15 @@
 .home-class {
   background-image: url("../static/images/Home-back.jpg") !important;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: round;
   background-size: contain;
-  background-size:100% 100%;
+  background-size: cover;
 }
 
 .title_card{
-  width: 80px;
-  height: 80px;
-  margin: 20%;
+  width: 100%;
+  height: 100%;
+  margin: 5%;
 }
 
 .center{
@@ -20,3 +20,8 @@
   width: fit-content;
   padding: 5px;
 }
+
+:host {
+  display: inline;
+  /* padding: 100px; */
+ }

@@ -1,4 +1,5 @@
-import { Component, Inject, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material';
 import { MsalBroadcastService, MsalGuardConfiguration, MsalService, MSAL_GUARD_CONFIG } from '@azure/msal-angular';
 import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
 import { filter, Subject, takeUntil } from 'rxjs';
@@ -9,6 +10,7 @@ import { filter, Subject, takeUntil } from 'rxjs';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent implements OnInit, OnDestroy {
+  isShowing = false;
   isExpanded = false;
   isUserLoggedIn : boolean = false;
   changeText: boolean;
@@ -55,4 +57,5 @@ export class NavMenuComponent implements OnInit, OnDestroy {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
+
 }

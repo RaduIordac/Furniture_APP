@@ -4,9 +4,11 @@
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-html,body{
-  height: 80%;
-}
+
+
+// html,body{
+//   height: 80%;
+// }
 
 .toolbar-spacer{
   flex: 1 1 auto;
@@ -15,6 +17,11 @@ html,body{
 a.title {
   color: #a0c735;
 }
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+ }
 
 div{
   border: 0.5px black;

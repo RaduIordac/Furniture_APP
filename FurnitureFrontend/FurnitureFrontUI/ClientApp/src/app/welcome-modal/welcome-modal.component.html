@@ -6,6 +6,32 @@
     </header>
     <section id="modal-body">
         <p>If you have an account please log in :</p>
+
+        <div align="right">
+            <mat-slide-toggle [formControl]="toggleTheme">
+             <mat-icon color="primary">
+              brightness_2
+             </mat-icon>
+            </mat-slide-toggle>
+           </div>
+           <div style="text-align:center">
+           <ng-container *ngIf="!submitted; else greet">
+            <mat-form-field>
+             <input
+                 matInput
+                 placeholder="What is your name?"
+                 [formControl]="whatName"
+                 (keydown.enter)="submit()"
+             />
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+           </ng-container>
+           <ng-template #greet>
+            <h3>Hello, {{ whatName.value }}!</h3>
+            <button mat-raised-button color="accent" (click)="clear()">Clear</button>
+           </ng-template>
+          </div>
     </section>
     <footer id="modal-footer">
         <button mat-raised-button id="modal-action-button" (click)="actionFunction()">Log in</button>

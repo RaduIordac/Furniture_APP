@@ -1,5 +1,9 @@
 
-<div *ngIf="isUserLoggedIn">
+
+<div *ngIf="!loginDisplay">
+  <p>Please sign-in to see your profile information.</p>
+</div>
+<div *ngIf="loginDisplay">
   <mat-card class=""title-card>
     <mat-card-content>
       <div class="center" > <h1>Hello, {{userName}}!</h1></div>

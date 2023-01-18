@@ -14,7 +14,7 @@ import { ProductsComponent } from './products/products.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialog, MatDialogModule, MatDividerModule, MatFormFieldModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
@@ -41,6 +41,7 @@ import { UserProfileComponent } from './userstuff/user-profile/user-profile.comp
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserRegisterComponent } from './userstuff/user-register/user-register.component';
 
+const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { UserRegisterComponent } from './userstuff/user-register/user-register.c
     SidenavComponentComponent,
     CarousselComponent,
     UserProfileComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

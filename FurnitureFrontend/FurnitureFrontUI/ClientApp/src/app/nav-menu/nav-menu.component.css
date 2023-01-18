@@ -4,6 +4,22 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.mat-toolbar-single-row {
+  height: 100px;
+  text-align: justify;
+  display: unset;
+    box-sizing: border-box;
+    padding: 0 10px;
+    width: 100%;
+    /* flex-direction: row;
+    align-items: center; */
+    white-space: inherit;
+}
+
+.mat-spacer {
+  
+}
+
 html {
   font-size: 14px;
 }
