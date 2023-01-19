@@ -33,6 +33,13 @@ builder.Services.AddDbContext<FurnitureDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddMediatR(typeof(ApplicationAssembly));
 //builder.Services.AddAutoMapper();
+//builder.Services.AddCors(options => options.AddPolicy(name: "FurnitureDB",
+//    policy =>
+//    {
+//        policy.WithOrigins("http://localhost:4200", "http://localhost:7150")
+//        .AllowAnyMethod()
+//        .AllowAnyHeader();
+//    }));
 
 // In production, the Angular files will be served from this directory
 //builder.Services.AddSpaStaticFiles(configuration =>
@@ -51,6 +58,8 @@ if (!app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//app.UseCors("FurnitureDB");
 
 app.UseHttpsRedirection();
 
