@@ -11,6 +11,10 @@ namespace Application.DTOs
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+
+        public decimal Price { get; set; }
+
+        public DateTime Created { get; }
         
         public IEnumerable<PartDto> Parts { get; set; } = new List<PartDto>();
        // public ICollection<Category> Categories { get; set; } = new List<Category>();

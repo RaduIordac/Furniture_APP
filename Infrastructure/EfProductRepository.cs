@@ -48,14 +48,14 @@ namespace Infrastructure
 
         public IEnumerable<Product> GetAll()
         {
-            return _dbContext.Products;
+            return _dbContext.Products.Include(p => p.Parts).ToList();
         }
 
         public Product GetById(int Id)
         {
             var getPbyID = _dbContext
                 .Products
-                .Include(x => x.Parts)
+                .Include(x => x.Parts).ThenInclude(p=>p.Price)
                 .Include(x => x.Categories)
                 .FirstOrDefault(x => x.Id == Id);
 

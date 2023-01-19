@@ -1,12 +1,13 @@
 ﻿using Application;
 using Application.Parts.Create;
+using Application.Parts.GetAllParts;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FurnitureWebAPI.Controllers
 {
-    
+
     [Route("api/parts")]
     [ApiController]
     public class PartsController : Controller
@@ -21,11 +22,13 @@ namespace FurnitureWebAPI.Controllers
         }
 
         [HttpGet(Name = "Get all available parts")]
-        public ActionResult<List<Part>> GetAll()
+        public async Task<ActionResult<List<Part>>> GetAllAsync()
           {
-            return Ok(_unitOfWork.PartRepository.GetAllParts());
+            var result = await _mediatr.Send(new GetAllPartsQuery());
+            return Ok(result);
             }
 
+                
         [HttpPost(Name = "Create new part")]
         public async Task<ActionResult> Create(CreatePartCommand command)
           {

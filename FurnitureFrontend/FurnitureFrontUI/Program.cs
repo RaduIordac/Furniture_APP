@@ -34,6 +34,13 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddMediatR(typeof(ApplicationAssembly));
 //builder.Services.AddAutoMapper();
 
+// In production, the Angular files will be served from this directory
+//builder.Services.AddSpaStaticFiles(configuration =>
+//{
+//    configuration.RootPath = "ClientApp/dist";
+//});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

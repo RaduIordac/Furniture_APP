@@ -24,9 +24,11 @@ namespace Infrastructure
             return _dbContext.Parts.ToList();
         }
 
+
         public Part GetPart(int Id)
         {
-            return _dbContext.Parts.FirstOrDefault(x => x.Id == Id);
+            return _dbContext.Parts.Include(x => x.Categories).FirstOrDefault(x => x.Id == Id);
+
         }
 
         public int Create(Part part)

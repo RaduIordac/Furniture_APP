@@ -2,6 +2,7 @@
 using Application.Products.Create;
 using Application.Products.Delete;
 using Application.Products.GetById;
+using Application.Products.List;
 using Application.Products.Update;
 using Domain;
 using MediatR;
@@ -25,9 +26,10 @@ namespace FurnitureWebAPI.Controllers
         }
 
         [HttpGet(Name = "Get all products")]
-        public ActionResult<List<Product>> GetAll()
+        public async Task<ActionResult<List<Product>>> GetAllAsync()
         {
-            return Ok(_unitOfWork.ProductRepository.GetAll());
+            var result = await _mediatr.Send(new GetAllProductsQuery());
+            return Ok(result);
         }
 
         [HttpPost(Name = "Create Product")]
