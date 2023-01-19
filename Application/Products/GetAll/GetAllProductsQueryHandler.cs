@@ -1,4 +1,5 @@
 ﻿using Application.DTOs;
+using Application.Products.GetAll;
 using Application.Products.GetById;
 using MediatR;
 using System;
@@ -29,11 +30,13 @@ namespace Application.Products.List
                 productDto.Name = product.Name;
                 productDto.Price = product.Price;
                 productDto.Interest = product.Interest;
+                productDto.Picture= product.Picture;
                 productDto.Parts = product.Parts.Select(p => new PartDto
                 {
                     Id = p.Id,
                     Name = p.Name,
                     Price= p.Price,
+                    Picture= p.Picture,
                 });
 
                 result.Add(productDto);

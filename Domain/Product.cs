@@ -18,5 +18,8 @@ namespace Domain
         public DateTime Modified { get; set; } = DateTime.Now;
 
         public decimal Interest { get; set; } = 1.35m;
+
+        public string? Picture { get; set; }
+
     }
 }

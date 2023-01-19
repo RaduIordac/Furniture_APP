@@ -27,7 +27,7 @@ namespace Application.Parts.GetAllParts
                 PartDto partDto = new PartDto();
                 partDto.Id = part.Id;
                 partDto.Name = part.Name;
-                                              
+                partDto.Picture = part.Picture;                               
 
                 result.Add(partDto);
             }

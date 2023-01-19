@@ -13,15 +13,16 @@ namespace Application.DTOs
         public string Name { get; set; } = string.Empty;
         public int QuantityInStock { get; set; }
         
-        private decimal Price;
+        public decimal Price;
 
         public decimal Discount { get; set; } = 0.99m;
 
         public IEnumerable<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
 
+        public string? Picture { get; set; }
         public decimal SalesPrice
         {
-            get { return (Price * 1.5m) * Discount }
+            get { return (Price * 1.5m) * Discount; }
         }
     }
 }

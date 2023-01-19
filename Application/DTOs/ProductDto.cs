@@ -20,6 +20,7 @@ namespace Application.DTOs
        // public ICollection<Category> Categories { get; set; } = new List<Category>();
         public DateTime Modified { get; set; } = DateTime.Now;
 
+        public string? Picture { get; set; }
         public decimal Interest { get; set; }
     }
 }

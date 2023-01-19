@@ -1,7 +1,33 @@
 <h1 id="tableLabel">Products</h1>
 
 <p>This component demonstrates fetching Products from the server.</p>
+<mat-grid-list [cols]="5" rowHeight="400px">
+  <mat-grid-tile *ngFor="let product of products">
+<mat-card>
+<mat-card-header>
+  <div mat-card-avatar>
+    <img mat-card-image src="{{product.picture }}" alt="={{product.name}}">
+  </div>
+  <mat-card-title>{{product.name}}</mat-card-title>
+</mat-card-header>
+<hr>
+<img mat-card-image src="{{product.picture }}" alt="={{product.name}}">
+<hr>
+<mat-card-content>
+  <p>The product: {{product.name}} costs: {{product.price}}</p>
+</mat-card-content>
+<mat-card-actions>
+  <p aria-live="polite">Current count: <strong>{{ likeCount }}</strong></p>
+  <button mat-button (click)="increaseLikes()">Like</button>
+  <button mat-button (click)="decreaseLikes()">Unlike</button>
+  <button mat-button>Add to cart</button>
+</mat-card-actions>
 
+</mat-card>
+</mat-grid-tile>
+</mat-grid-list>
+
+<hr>
 <p *ngIf="!products?.length"><em>Loading...</em></p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products.length">
@@ -10,7 +36,7 @@
       <th>Name</th>
       <th>Price </th>
       <th>Date Created</th>
-      
+      <th>Picture</th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +44,7 @@
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
       <td>{{ product.created }}</td>
-      
+      <td>{{ product.picture }}</td>
     </tr>
   </tbody>
 </table>

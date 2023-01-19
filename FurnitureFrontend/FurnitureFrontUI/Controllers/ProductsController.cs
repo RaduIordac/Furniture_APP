@@ -1,6 +1,7 @@
 ﻿using Application;
 using Application.Products.Create;
 using Application.Products.Delete;
+using Application.Products.GetAll;
 using Application.Products.GetById;
 using Application.Products.List;
 using Application.Products.Update;
