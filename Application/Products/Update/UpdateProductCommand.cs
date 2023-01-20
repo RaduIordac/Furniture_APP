@@ -20,5 +20,7 @@ namespace Application.Products.Update
         public List<CategoryDto>? Categories { get; set; }
 
         public decimal Interest { get; set; }
+
+        public string? Picture { get; set; }
     }
 }

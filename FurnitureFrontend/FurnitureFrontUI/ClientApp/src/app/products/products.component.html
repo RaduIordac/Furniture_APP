@@ -1,25 +1,29 @@
 <h1 id="tableLabel">Products</h1>
 
 <p>This component demonstrates fetching Products from the server.</p>
-<mat-grid-list [cols]="5" rowHeight="400px">
+<hr>
+
+<mat-grid-list [cols]="5" rowHeight="500px" >
   <mat-grid-tile *ngFor="let product of products">
 <mat-card>
 <mat-card-header>
   <div mat-card-avatar>
-    <img mat-card-image src="{{product.picture }}" alt="={{product.name}}">
+    <img mat-card-image src="{{product.picture}}" alt="={{product.name}}">
   </div>
   <mat-card-title>{{product.name}}</mat-card-title>
 </mat-card-header>
 <hr>
-<img mat-card-image src="{{product.picture }}" alt="={{product.name}}">
+<img mat-card-image src="{{product.picture}}" onerror="this.src='https://media.istockphoto.com/id/977415490/ro/vector/canapele-%C8%99i-canapele-living-si-mobilier-de-terasa-pictograme-vectoriale.jpg?s=1024x1024&w=is&k=20&c=8d7TNfhJpXwyDBahMAkj_5LGe51aFKyysfDQDWUPf3E='" alt="={{product.name}}">
+
 <hr>
 <mat-card-content>
   <p>The product: {{product.name}} costs: {{product.price}}</p>
 </mat-card-content>
 <mat-card-actions>
-  <p aria-live="polite">Current count: <strong>{{ likeCount }}</strong></p>
-  <button mat-button (click)="increaseLikes()">Like</button>
-  <button mat-button (click)="decreaseLikes()">Unlike</button>
+  <p aria-live="polite">Current count: <strong>{{ product.likeCount }}</strong></p>
+  <button mat-button (click)="increaseLikes(product)" >Like</button>
+  <button mat-button (click)="decreaseLikes(product)" >Unlike</button>
+  <button mat-button (click)="goToEditProduct(product)">Edit Product</button>
   <button mat-button>Add to cart</button>
 </mat-card-actions>
 
@@ -29,10 +33,11 @@
 
 <hr>
 <p *ngIf="!products?.length"><em>Loading...</em></p>
-
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products.length">
+<div>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products.length" width="90%">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Price </th>
       <th>Date Created</th>
@@ -41,6 +46,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
       <td>{{ product.created }}</td>
@@ -48,3 +54,5 @@
     </tr>
   </tbody>
 </table>
+
+</div>

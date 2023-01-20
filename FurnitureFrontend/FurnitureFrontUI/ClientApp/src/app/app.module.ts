@@ -40,6 +40,7 @@ import { MatListModule} from '@angular/material/list';
 import { UserProfileComponent } from './userstuff/user-profile/user-profile.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserRegisterComponent } from './userstuff/user-register/user-register.component';
+import { UpdateProductComponent } from './products/update-product/update-product.component';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -61,6 +62,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     CarousselComponent,
     UserProfileComponent,
     UserRegisterComponent,
+    UpdateProductComponent,
     
   ],
   imports: [
@@ -95,7 +97,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       {
         auth:{
           clientId:"c6560dac-6885-43a6-9964-3280f79232a3",
-          redirectUri:"http://localhost:4200",
+          redirectUri:"https://localhost:44494",
           authority:"https://login.microsoftonline.com/544f8ac3-ce4c-47d1-9b72-284ac54b8d1c"
         },
         cache:{
@@ -126,6 +128,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       { path: 'login', component: LoginComponentComponent, title: "Login Form" },
       { path: 'register', component: UserRegisterComponent, title: "Register Form" },
       { path: 'user', component: UserProfileComponent, title: "User profile",canActivate:[MsalGuard] },
+      { path: 'edit-product/:id', component: UpdateProductComponent, title: "Edit product"},
       
 
 

@@ -22,6 +22,7 @@ namespace Application.Products.Update
 
             product.Name = request.Name;
             product.Interest = request.Interest;
+            product.Picture= request.Picture;
 
             if (request.Parts != null)
             {

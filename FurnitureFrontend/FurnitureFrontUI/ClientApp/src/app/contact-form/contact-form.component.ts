@@ -15,6 +15,5 @@ export class ContactFormComponent  {
 
   departmentControl = new FormControl('');
   departmentList: string[] = ['Sales', 'Marketing', 'Purchasing', 'Logistics', 'Production', 'Management'];
-  toppings = new FormControl('');
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  
 }

@@ -1,5 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Directive, HostListener, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Product } from './Products';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -8,28 +10,34 @@ import { HttpClient } from '@angular/common/http';
 
 
 export class ProductsComponent {
-  public products: Products[] = [];
-  public likeCount = 0;
+  public products: Product[] = [];
   
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Products[]>(baseUrl + 'api/products').subscribe({next: (result) => this.products = result, error: (err) => console.error(err),complete: () => console.info('complete')});
+  
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router) {
+    http.get<Product[]>(baseUrl + 'api/products').subscribe({next: (result) => this.products = result, error: (err) => console.error(err),complete: () => console.info('complete')});
+    
   }
 
-  public increaseLikes() {
-    this.likeCount++;
+  public increaseLikes(product: Product) {
+    if (!product.likeCount){
+      product.likeCount = 0;
+    }
+    
+    product.likeCount++;
+    
   }
-  public decreaseLikes() {
-    this.likeCount--;
+  public decreaseLikes(product: Product) {
+   
+    if (!product.likeCount){
+      product.likeCount = 0;
+    }
+    product.likeCount--;
+    
   }
-
+ 
+  public goToEditProduct(product: Product){
+    this.router.navigate(['edit-product', product.id])
+  }
 }
 
-interface Products {
-  name: string;
-  price: number;
-  created: Date;
-  picture: string;
-  }
-
-  
 

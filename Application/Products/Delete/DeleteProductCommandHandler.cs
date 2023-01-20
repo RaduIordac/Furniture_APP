@@ -20,7 +20,7 @@ namespace Application.Products.Delete
         {
             var product = _productRepository.GetById(request.Id);
 
-            _productRepository.Create(product);
+            _productRepository.Delete(product);
 
             return Unit.Task;
         }
