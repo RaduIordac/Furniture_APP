@@ -26,7 +26,7 @@ export class UpdateProductComponent implements OnInit{
 
     this.UpdateProductForm = this.formBuilder.group({
       productname: [null, [Validators.required, Validators.minLength(4)]],
-      price: [null, [Validators.required, Validators.pattern("^\-{0,1}\d+(.\d+){0,1}$")]],
+      interest: [null, [Validators.required,]] //Validators.pattern("^\-{0,1}\d+(.\d+){0,1}$")]],
       
     });
   }
@@ -41,14 +41,17 @@ export class UpdateProductComponent implements OnInit{
   }
 
   updateProduct(product:Product){
+    this.http.put<Product>(this.baseUrl + `api/products/${product.id}`,product).subscribe({next: (result) => this.product = result, error: (err) => console.error(err),complete: () => console.info('complete')});
     
   }
 
   createProduct(product:Product){
+    this.http.post<Product>(this.baseUrl + `api/products/`,product).subscribe({next: (result) => this.product = result, error: (err) => console.error(err),complete: () => console.info('complete')});
     
   }
 
   deleteProduct(product:Product){
+    this.http.delete<Product>(this.baseUrl + `api/products/${product.id}`).subscribe({next: (result) => this.product = result, error: (err) => console.error(err),complete: () => console.info('complete')});
     
   }
 

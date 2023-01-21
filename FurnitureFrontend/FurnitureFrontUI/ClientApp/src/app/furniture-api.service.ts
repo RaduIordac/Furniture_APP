@@ -1,17 +1,17 @@
-import { Injectable, NgModule } from '@angular/core';
-import {RouterModule,Routes} from '@angular/router';
+// import { Injectable, NgModule } from '@angular/core';
+// import {RouterModule,Routes} from '@angular/router';
 
-const routes : Routes=[];
+// const routes : Routes=[];
 
-@NgModule({
-  imports:[RouterModule.forRoot(routes)],
-  exports:[RouterModule]
-})
+// @NgModule({
+//   imports:[RouterModule.forRoot(routes)],
+//   exports:[RouterModule]
+// })
 
-@Injectable({
-  providedIn: 'root'
-})
-export class FurnitureApiService {
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class FurnitureApiService {
 
-  constructor() { }
-}
+//   constructor() { }
+// }

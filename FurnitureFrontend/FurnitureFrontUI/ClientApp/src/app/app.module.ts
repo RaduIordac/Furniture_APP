@@ -42,6 +42,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserRegisterComponent } from './userstuff/user-register/user-register.component';
 import { UpdateProductComponent } from './products/update-product/update-product.component';
 import { AboutComponent } from './about/about.component';
+import { ProductNamePipe } from './product-name.pipe';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -65,6 +66,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     UserRegisterComponent,
     UpdateProductComponent,
     AboutComponent,
+    ProductNamePipe,
     
   ],
   imports: [

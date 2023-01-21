@@ -4,7 +4,8 @@ import { InteractionStatus, PopupRequest, RedirectRequest } from '@azure/msal-br
 import { filter, Subject, takeUntil } from 'rxjs';
 import { AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-
+import { Product } from '../products/Products';
+import { ProductsComponent } from '../products/products.component';
 
 
 
@@ -19,7 +20,9 @@ export class NavMenuComponent implements OnInit, OnDestroy {
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
-  
+  searchText = '';
+  public products: Product[] = [];
+  searchGroup = [this.products];
   isUserLoggedIn : boolean = false;
   changeText: boolean;
   private readonly _destroy= new Subject<void>();

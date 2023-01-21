@@ -20,16 +20,16 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-            <mat-label for="price">Price</mat-label>
+            <mat-label for="interest">Price</mat-label>
             <input matInput
                    class="form-control"
-                   type="price"
-                   formControlName="price"
+                   type="interest"
+                   formControlName="interest"
                    placeholder="xx.xx"
-                   [(ngModel)]="product.price"
-                   #price>
-            <mat-error *ngIf="UpdateProductForm.controls['price'].errors?.['required']">Price is required</mat-error>
-            <mat-error *ngIf="UpdateProductForm.controls['price'].errors?.['pattern']">Price must be decimal</mat-error>
+                   [(ngModel)]="product.interest"
+                   #interest>
+            <mat-error *ngIf="UpdateProductForm.controls['interest'].errors?.['required']">Interest is required</mat-error>
+            <!-- <mat-error *ngIf="UpdateProductForm.controls['interest'].errors?.['pattern']">Interest must be decimal</mat-error> -->
             
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="updateProduct(product)" *ngIf="product">Update</button>
