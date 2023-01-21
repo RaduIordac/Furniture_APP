@@ -18,3 +18,6 @@ if (environment.production) {
 
 platformBrowserDynamic(providers).bootstrapModule(AppModule)
   .catch(err => console.log(err));
+
+
+  // ng generate component src/About --module app

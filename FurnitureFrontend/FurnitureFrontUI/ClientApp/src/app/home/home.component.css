@@ -4,15 +4,15 @@
 
 .home-class {
   background-image: url("../static/images/Home-back.jpg") !important;
-  background-position: center;
+  background-position: flex;
   background-repeat: round;
   background-size: contain;
   background-size: cover;
 }
 
 .title_card{
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
   margin: 5%;
 }
 

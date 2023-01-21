@@ -1,19 +1,21 @@
 <hr>
 <div>
 <span>  
-  <mat-grid-list [cols]="3"> 
+  <mat-grid-list [cols]="3" [style.background]="'yellow'"> 
     <mat-grid-tile >
       <mat-grid-tile-header>
-        <h3 [routerLink]="['/contact-form']" routerLinkActive="router-link-active" >Contact us</h3>
+        <h3><a [routerLink]="['/contact-form']" routerLinkActive="router-link-active">Contact us</a></h3>
       </mat-grid-tile-header>
-      Street,<br/>
+      <mat-card-content>
+      <span>Street,</span><br/>
       City,<br/>
-      Country.
-      <div><a [routerLink]="['/contact-form']" routerLinkActive="router-link-active">contact-form</a></div>
+      Country,<br/>
+      <p><a [routerLink]="['/contact-form']" routerLinkActive="router-link-active">contact-form</a></p>
+    </mat-card-content>
     </mat-grid-tile> 
     <mat-grid-tile>
       <mat-grid-tile-header>
-        <h3>About us</h3>
+        <h3><a [routerLink]="['/about']" routerLinkActive="router-link-active">About us</a></h3>
       </mat-grid-tile-header>
       Find products<br/>
       Find parts

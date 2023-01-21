@@ -41,6 +41,7 @@ import { UserProfileComponent } from './userstuff/user-profile/user-profile.comp
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserRegisterComponent } from './userstuff/user-register/user-register.component';
 import { UpdateProductComponent } from './products/update-product/update-product.component';
+import { AboutComponent } from './about/about.component';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -63,6 +64,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     UserProfileComponent,
     UserRegisterComponent,
     UpdateProductComponent,
+    AboutComponent,
     
   ],
   imports: [
@@ -129,6 +131,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       { path: 'register', component: UserRegisterComponent, title: "Register Form" },
       { path: 'user', component: UserProfileComponent, title: "User profile",canActivate:[MsalGuard] },
       { path: 'edit-product/:id', component: UpdateProductComponent, title: "Edit product"},
+      { path: 'about', component: AboutComponent, title: "About us"},
       
 
 
