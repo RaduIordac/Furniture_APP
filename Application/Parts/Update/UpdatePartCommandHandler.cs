@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Application.DTOs;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Products.Update
+namespace Application.Parts.Update
 {
     public class UpdatePartCommandHandler : IRequestHandler<UpdatePartCommand>
     {
@@ -23,6 +23,8 @@ namespace Application.Products.Update
             part.Name = request.Name;
             part.QuantityInStock = request.QuantityInStock;
             part.Price = request.Price;
+            part.Picture = request.Picture;
+            part.Discount= request.Discount;
 
             if (request.Categories != null)
             {

@@ -32,9 +32,9 @@
             <!-- <mat-error *ngIf="UpdateProductForm.controls['interest'].errors?.['pattern']">Interest must be decimal</mat-error> -->
             
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="updateProduct(product)" *ngIf="product">Update</button>
-        <button mat-raised-button color="primary" (click)="deleteProduct(product)" *ngIf="product">Delete</button>
-        <button mat-raised-button color="primary" (click)="createProduct(product)" *ngIf="product">Create</button>
+        <button mat-raised-button color="primary" (click)="updateProduct(product)" *ngIf="product.id">Update</button>
+        <button mat-raised-button color="warn" (click)="deleteProduct(product)" *ngIf="product.id">Delete</button>
+        <button mat-raised-button color="accent" (click)="createProduct(product)" *ngIf="!product.id">Create</button>
 
         
     </form>

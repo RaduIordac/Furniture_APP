@@ -1,5 +1,5 @@
-import { Part } from "./Parts/Parts";
-import { Category } from "./Categories/Catergories";
+import { Part } from "../Parts/Parts";
+import { Category } from "../Categories/Catergories";
 
 export interface Product {
   id: number;

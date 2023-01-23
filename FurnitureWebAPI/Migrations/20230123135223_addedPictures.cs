@@ -10,28 +10,30 @@ namespace FurnitureWebAPI.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Picture",
-                table: "Products",
-                type: "nvarchar(max)",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "Picture",
+            migrationBuilder.AddColumn<decimal>(
+                name: "Discount",
                 table: "Parts",
-                type: "nvarchar(max)",
-                nullable: true);
+                type: "decimal(18,2)",
+                nullable: false,
+                defaultValue: 0m);
+
+            migrationBuilder.AddColumn<decimal>(
+                name: "SalesPrice",
+                table: "Parts",
+                type: "decimal(18,2)",
+                nullable: false,
+                defaultValue: 0m);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Picture",
-                table: "Products");
+                name: "Discount",
+                table: "Parts");
 
             migrationBuilder.DropColumn(
-                name: "Picture",
+                name: "SalesPrice",
                 table: "Parts");
         }
     }

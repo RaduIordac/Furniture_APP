@@ -43,6 +43,9 @@ import { UserRegisterComponent } from './userstuff/user-register/user-register.c
 import { UpdateProductComponent } from './products/update-product/update-product.component';
 import { AboutComponent } from './about/about.component';
 import { ProductNamePipe } from './product-name.pipe';
+import { PartsComponent } from './Parts/parts.component';
+import { UpdatePartComponent } from './Parts/update-part/update-part.component';
+
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -67,6 +70,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     UpdateProductComponent,
     AboutComponent,
     ProductNamePipe,
+    PartsComponent,
+    UpdatePartComponent,
     
   ],
   imports: [
@@ -96,6 +101,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     MatSelectModule,
     MatRadioModule,
     MatButtonModule,
+    MatTableModule,
     MatCardModule,
     MsalModule.forRoot(new PublicClientApplication(
       {
@@ -134,6 +140,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       { path: 'user', component: UserProfileComponent, title: "User profile",canActivate:[MsalGuard] },
       { path: 'edit-product/:id', component: UpdateProductComponent, title: "Edit product"},
       { path: 'about', component: AboutComponent, title: "About us"},
+      { path: 'parts', component: PartsComponent, title: "Parts display" },
+      { path: 'edit-part/:id', component: UpdatePartComponent, title: "Edit part"},
       
 
 

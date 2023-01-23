@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FurnitureWebAPI.Migrations
 {
     [DbContext(typeof(FurnitureDbContext))]
-    [Migration("20230119120344_addedPictures")]
+    [Migration("20230123135223_addedPictures")]
     partial class addedPictures
     {
         /// <inheritdoc />
@@ -131,6 +131,9 @@ namespace FurnitureWebAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -143,6 +146,9 @@ namespace FurnitureWebAPI.Migrations
 
                     b.Property<int>("QuantityInStock")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("SalesPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

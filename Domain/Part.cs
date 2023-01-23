@@ -18,5 +18,13 @@ namespace Domain
         public ICollection<Category> Categories { get; set; } = new List<Category>();
 
         public string? Picture { get; set; }
+
+        
+        public decimal Discount { get; set; } = 0.99m;
+
+        
+        public decimal SalesPrice { get; set; }
+
+
     }
 }

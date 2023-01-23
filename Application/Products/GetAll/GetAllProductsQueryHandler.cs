@@ -35,8 +35,11 @@ namespace Application.Products.List
                 {
                     Id = p.Id,
                     Name = p.Name,
-                    Price= p.Price,
+                    SalesPrice = p.SalesPrice,
                     Picture= p.Picture,
+                    Discount= p.Discount,
+                    QuantityInStock= p.QuantityInStock,
+                    
                 });
 
                 result.Add(productDto);

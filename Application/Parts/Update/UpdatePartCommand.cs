@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Application.Products.Update
+namespace Application.Parts.Update
 {
     public class UpdatePartCommand : IRequest
     {
@@ -17,5 +17,9 @@ namespace Application.Products.Update
         public int QuantityInStock { get; set; }
         public decimal Price { get; set; }
         public List<CategoryDto>? Categories { get; set; }
+
+        public string? Picture { get; set; }
+
+        public decimal Discount { get; set; }
     }
 }

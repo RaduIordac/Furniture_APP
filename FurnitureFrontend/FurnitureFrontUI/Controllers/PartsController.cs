@@ -1,6 +1,8 @@
 ﻿using Application;
 using Application.Parts.Create;
 using Application.Parts.GetAllParts;
+using Application.Parts.Delete;
+using Application.Parts.Update;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -23,18 +25,18 @@ namespace FurnitureWebAPI.Controllers
 
         [HttpGet(Name = "Get all available parts")]
         public async Task<ActionResult<List<Part>>> GetAllAsync()
-          {
+        {
             var result = await _mediatr.Send(new GetAllPartsQuery());
             return Ok(result);
-            }
+        }
 
-                
+
         [HttpPost(Name = "Create new part")]
         public async Task<ActionResult> Create(CreatePartCommand command)
-          {
-           var result = await _mediatr.Send(command);
+        {
+            var result = await _mediatr.Send(command);
             return Ok(result);
-    }
+        }
         //[Route("{id}")]
         [HttpGet("{id}", Name = "Get Part by Id")]
         public ActionResult<Part> GetByID(int id)
@@ -48,13 +50,28 @@ namespace FurnitureWebAPI.Controllers
 
             return Json(result);
         }
-        
+
+        [HttpPut("{id}", Name = "Update Part")]
+        public async Task<ActionResult> Update(int id, UpdatePartCommand command)
+        {
+            command.Id = id;
+            return Json(await _mediatr.Send(command));
+        }
+
+        [HttpDelete("{id}", Name = "Delete Part")]
+
+        public async Task<ActionResult> Delete(int id, DeletePartCommand command)
+        {
+            command.Id = id;
+            return Json(await _mediatr.Send(command));
 
 
-        //public IActionresult index()
-        //{
-        //    return view();
-        //}
+
+            //public IActionresult index()
+            //{
+            //    return view();
+            //}
+        }
     }
 }
 

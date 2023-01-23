@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from './Products';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html'
@@ -17,6 +18,11 @@ export class ProductsComponent {
     http.get<Product[]>(baseUrl + 'api/products').subscribe({next: (result) => this.products = result, error: (err) => console.error(err),complete: () => console.info('complete')});
     
   }
+
+public updatedProductList(products: Product[]){
+
+  this.products = products;
+}
 
   public increaseLikes(product: Product) {
     if (!product.likeCount){

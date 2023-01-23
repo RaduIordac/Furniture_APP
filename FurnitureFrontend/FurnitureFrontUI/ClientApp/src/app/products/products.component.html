@@ -3,7 +3,7 @@
 <p>This component demonstrates fetching Products from the server.</p>
 <hr>
 
-<mat-grid-list [cols]="5" rowHeight="500px" >
+<mat-grid-list [cols]="5" rowHeight="800px" >
   <mat-grid-tile *ngFor="let product of products">
 <mat-card>
 <mat-card-header>
@@ -19,12 +19,15 @@
 <mat-card-content>
   <p>The product: {{product.name}} costs: {{product.price}}</p>
 </mat-card-content>
-<mat-card-actions>
-  <p aria-live="polite">Current count: <strong>{{ product.likeCount }}</strong></p>
-  <button mat-button (click)="increaseLikes(product)" >Like</button>
-  <button mat-button (click)="decreaseLikes(product)" >Unlike</button>
-  <button mat-button (click)="goToEditProduct(product)">Edit Product</button>
-  <button mat-button>Add to cart</button>
+<mat-card-actions width="200px">
+  <p aria-live="polite">Nr of likes: <strong>{{ product.likeCount }}</strong></p>
+  <button mat-raised-button color="accent" (click)="increaseLikes(product)" background-color="yellow" >Like</button>
+  <button mat-raised-button color="warn" (click)="decreaseLikes(product)" >Unlike</button>
+  <button mat-raised-button (click)="goToEditProduct(product)">Edit 
+    {{product.name}}</button>
+  <button mat-button mat-raised-button color="primary">Add to cart</button>
+
+  
 </mat-card-actions>
 
 </mat-card>
@@ -42,6 +45,8 @@
       <th>Price </th>
       <th>Date Created</th>
       <th>Picture</th>
+      <th>Parts List</th>
+      <th>Categories List</th>
       <th>Options</th>
     </tr>
   </thead>
@@ -52,6 +57,14 @@
       <td>{{ product.price }}</td>
       <td>{{ product.created }}</td>
       <td>{{ product.picture }}</td>
+      <td *ngFor="let part of product.parts||[]">
+      <span>
+        <ng-container *ngIf="!part">
+          None
+        </ng-container>
+      </span>
+      {{part}}</td>
+      <td *ngFor="let categ of product.categories">{{categ}}</td>
       <td><button mat-button (click)="goToEditProduct(product)">Edit Product</button></td>
 
     </tr>
