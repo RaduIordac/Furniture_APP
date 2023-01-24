@@ -15,7 +15,13 @@ import { ProductsComponent } from '../products/products.component';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent implements OnInit, OnDestroy {
-  @ViewChild('sidenav') sidenav: MatSidenav | undefined;
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
+  events: string[] = [];
+  opened: boolean = true;
+
+  color = "accent";
+  shouldRun = window.location.host;
   isExpanded = true;
   showSubmenu: boolean = false;
   isShowing = false;

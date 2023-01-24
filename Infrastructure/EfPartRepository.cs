@@ -21,13 +21,15 @@ namespace Infrastructure
              
         public IEnumerable<Part> GetAllParts()
         {
-            return _dbContext.Parts.ToList();
+            return _dbContext.Parts.Include(x=> x.Categories).ToList();
         }
 
 
         public Part GetPart(int Id)
         {
-            return _dbContext.Parts.Include(x => x.Categories).FirstOrDefault(x => x.Id == Id);
+            return _dbContext.Parts
+                .Include(x => x.Categories)
+                .FirstOrDefault(x => x.Id == Id);
 
         }
 

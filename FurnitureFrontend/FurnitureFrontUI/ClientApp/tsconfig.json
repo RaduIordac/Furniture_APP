@@ -24,6 +24,7 @@
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
+    "strictPropertyInitialization": false, //added by radu
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   }

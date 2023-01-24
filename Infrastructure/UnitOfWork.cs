@@ -13,6 +13,7 @@ namespace Infrastructure
         public UnitOfWork(FurnitureDbContext dataContext,
                             IProductRepository productRepository, 
                             IPartRepository partRepository,
+                            IOrderRepository orderRepository,
                             ICategoryRepository categoryRepository,
                             IUserRepository userRepository)
         {
@@ -20,12 +21,14 @@ namespace Infrastructure
             ProductRepository = productRepository;
             PartRepository = partRepository;
             CategoryRepository = categoryRepository;
+            OrderRepository = orderRepository;
             UserRepository = userRepository;
         }
 
         public IProductRepository ProductRepository { get; private set; }
         public IPartRepository PartRepository { get; private set; }
         public ICategoryRepository CategoryRepository { get; private set; }
+        public IOrderRepository OrderRepository { get; private set; }
         public IUserRepository UserRepository { get; private set; }
 
 

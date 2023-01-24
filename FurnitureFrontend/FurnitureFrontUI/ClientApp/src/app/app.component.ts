@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, Inject, OnDestroy, OnInit } from '@angular/core';
-// import { MatDialog, MatDialogConfig } from '@angular/material';
-// import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';
-// import { MsalBroadcastService, MsalGuardConfiguration, MsalService, MSAL_GUARD_CONFIG } from '@azure/msal-angular';
-// import { filter, Subject, takeUntil } from 'rxjs';
-// import { InteractionStatus, PopupRequest, RedirectRequest } from '@azure/msal-browser';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';
+import { MsalBroadcastService, MsalGuardConfiguration, MsalService, MSAL_GUARD_CONFIG } from '@azure/msal-angular';
+import { filter, Subject, takeUntil } from 'rxjs';
+import { InteractionStatus, PopupRequest, RedirectRequest } from '@azure/msal-browser';
 
 
 @Component({

@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Application.DTOs
 {
-    public class Order
+    public class OrderDto
     {
         public int Id { get; set; }
 
@@ -17,6 +17,6 @@ namespace Domain
 
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
-        public decimal TotalAmount { get; set; }
+        public decimal TotalAmount => OrderItems.Sum(p => p.Price);
     }
 }

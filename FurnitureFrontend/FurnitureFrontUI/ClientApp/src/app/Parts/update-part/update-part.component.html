@@ -1,1 +1,43 @@
 <p>update-part works!</p>
+
+<div class="form" *ngIf="part">
+    <form [formGroup]="UpdatePartForm" class="form-group" (ngSubmit)="onSubmit(UpdatePartForm)">
+
+        <mat-form-field appearance="fill">
+            <mat-label for="partname">Part Name</mat-label>
+            <input matInput
+                   class="form-control"
+                   type="text"
+                   formControlName="partname"
+                   placeholder="partname"
+                   [(ngModel)]="part.name"
+                   #partname>
+            <mat-error *ngIf="UpdatePartForm.controls['partname'].errors?.['required']">Name is required</mat-error>       
+            <mat-error *ngIf="UpdatePartForm.controls['partname'].errors?.['minlength']">Minimum 4 characters</mat-error>
+            
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="fill">
+            <mat-label for="interest">Price</mat-label>
+            <input matInput
+                   class="form-control"
+                   type="interest"
+                   formControlName="interest"
+                   placeholder="xx.xx"
+                   [(ngModel)]="product.interest"
+                   #interest>
+            <mat-error *ngIf="UpdateProductForm.controls['interest'].errors?.['required']">Interest is required</mat-error>
+            <mat-error *ngIf="UpdateProductForm.controls['interest'].errors?.['pattern']">Interest must be decimal</mat-error> -->
+            
+        <!-- </mat-form-field> -->
+        <button mat-raised-button color="primary" (click)="updatePart(part)" *ngIf="part.id">Update part :{{part.name}}</button>
+        <button mat-raised-button color="warn" (click)="deletePart(part)" *ngIf="part.id">Delete part :{{part.name}}</button>
+        <button mat-raised-button color="accent" (click)="createPart(part)" *ngIf="!part.id">Create part :{{part.name}}</button>
+
+        
+        
+    
+
+    </form>
+ 
+</div>

@@ -3,6 +3,8 @@ using Application.Parts.Create;
 using Application.Parts.GetAllParts;
 using Application.Parts.Delete;
 using Application.Parts.Update;
+using Application.Parts.GetById;
+
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

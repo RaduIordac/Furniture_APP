@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
 import { EventMessage, EventType, InteractionStatus } from '@azure/msal-browser';
 import { filter } from 'rxjs/operators';
-
+import {ProfileType} from '../userstuff/user-profile/user-profile.component'
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ import { filter } from 'rxjs/operators';
 
 export class HomeComponent  implements OnInit{
   isUserLoggedIn:boolean=false
-  userName = "None yet!"
+  userName : ProfileType["givenName"] ;
   loginDisplay = false;
 
   constructor(private authService: MsalService, private msalBroadcastService: MsalBroadcastService){

@@ -55,8 +55,8 @@ namespace Infrastructure
         {
             var getPbyID = _dbContext
                 .Products
-                .Include(x => x.Parts)
-                .Include(x => x.Categories)
+                //.Include(x => x.Parts)
+                //.Include(x => x.Categories)
                 .FirstOrDefault(x => x.Id == Id);
 
            return getPbyID;

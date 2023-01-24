@@ -97,6 +97,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    
     MatIconModule,
     MatSelectModule,
     MatRadioModule,
@@ -130,7 +131,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     ),   
     
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full', title: 'FurnitureAppShop'},
+      { path: '', component: NavMenuComponent, pathMatch: 'full', title: 'FurnitureAppShop'}, // HomeComponent
       { path: 'counter', component: CounterComponent, title: " Counter" },
       { path: 'fetch-data', component: FetchDataComponent,title: "Weather data" },
       { path: 'products', component: ProductsComponent, title: "Products display" },

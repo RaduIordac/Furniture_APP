@@ -22,6 +22,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IProductRepository, EfProductRepository>();
 builder.Services.AddScoped<IPartRepository, EfPartRepository>();
+builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
+
 builder.Services.AddScoped<ICategoryRepository, EfCategoryRepository>();
 //builder.Services.AddScoped<IProductRepository, InMemProductRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

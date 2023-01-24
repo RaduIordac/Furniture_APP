@@ -15,6 +15,8 @@ namespace Application
 
         public IUserRepository UserRepository { get; }
 
+        public IOrderRepository OrderRepository { get; }
+
         Task Save();
     }
 }

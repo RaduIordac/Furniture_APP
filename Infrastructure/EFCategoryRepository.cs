@@ -1,5 +1,6 @@
 ﻿using Application;
 using Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,14 @@ namespace Infrastructure
 
         public IEnumerable<Category> GetAllCategories()
         {
-            return _dbContext.Categories.ToList();
+            return _dbContext.Categories.Include(x => x.Products).ToList();
         }
 
         public Category GetById(int Id)
         {
-            return _dbContext.Categories.FirstOrDefault(x => x.Id == Id);
+            return _dbContext.Categories
+                //.Include(x => x.Products)
+                .FirstOrDefault(x => x.Id == Id);
         }
 
         public int Create(Category category)

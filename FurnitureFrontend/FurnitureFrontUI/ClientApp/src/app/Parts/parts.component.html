@@ -6,7 +6,7 @@
 
 <p *ngIf="!parts?.length"><em>Loading...</em></p>
 <!-- <mat-card> -->
-     <mat-table class="mat-elevation-z8" [dataSource]="parts">
+     <!-- <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort >
       <ng-container matColumnDef="Id">
         <th mat-header-cell *matHeaderCellDef>Id</th>
         <td mat-cell *matCellDef="let part">{{ part.id }}</td>
@@ -50,13 +50,13 @@
       
       <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
       <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
-    </mat-table>
+    </mat-table> -->
 
 <!-- </mat-card> -->
 
 
 <hr>
-<!-- <p *ngIf="!parts?.length"><em>Loading...</em></p>
+<!-- <p *ngIf="!parts?.length"><em>Loading...</em></p> -->
 <div>
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="parts.length" width="90%">
   <thead>
@@ -86,4 +86,4 @@
   </tbody>
 </table>
 
-</div> -->
+</div>

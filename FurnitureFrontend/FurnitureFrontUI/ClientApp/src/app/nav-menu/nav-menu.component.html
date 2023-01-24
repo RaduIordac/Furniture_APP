@@ -1,33 +1,186 @@
 <header>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" [color]="color" 
+    (mouseover)="color = 'warn'"
+    (mouseout)="color = 'accent'">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a mat-button [routerLink]="['/'] " >
+      <img src="/assets/lounge-logo.gif"  alt="FurnitureFrontUI" style="height: 70px" >
+      
+    </a>
+    <a mat-button [routerLink]="['/counter']">Counter</a>
+      <a mat-button [routerLink]="['/fetch-data']">Fetch data</a>
+      <a mat-button [routerLink]="['/products']">Products</a>
+      <a mat-button [routerLink]="['/parts']">Parts</a>
+      <span class="flexExpand"></span>
+      
+                <a mat-stroked-button color="black" [routerLink]="['user']">User Profile</a>
+                <button mat-raised-button color="accent" color:black *ngIf="!loginDisplay" (click)="login()">Login</button>
+                <button mat-raised-button color="warn" *ngIf="loginDisplay" (click)="logout()">Logout</button> 
+                <span class="flexExpand"></span>
+                
+                  <div>
+                  <mat-icon font-size="25px" style="display: flex; margin-top: 25px;" >shopping_cart</mat-icon>
+                        <div class="cart-item-nr position-relative "  (mouseover)="changeText=true" (mouseout)="changeText=false">0
+                          <span *ngIf="!changeText"></span>
+                          <span *ngIf="changeText">Nr of items in cart</span>
+                            </div>
+                          </div>
+                          
+                          
+                          <span class="flexExpand"></span>
+                <a>
+                  <mat-form-field >
+                    <input matInput
+                                placeholder="Search"
+                      aria-label="Search"
+                    />
+                    <mat-icon matPrefix>search</mat-icon>
+                  </mat-form-field>
+                </a>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container *ngIf="shouldRun">
+    <mat-sidenav mode="side" [(opened)]="opened" (opened)="events.push()"
+                 (closed)="events.push()">
+      Sidenav content
+      <mat-nav-list>
+
+        <a mat-list-item color="accent" [routerLink]="'/accounts'"> Accounts </a>
+        <a mat-list-item color="accent" [routerLink]="'/create-account'"> Create Account </a>
+        <a mat-list-item color="accent" [routerLink]="'/contacts'"> Contacts </a>
+        <a mat-list-item color="accent" [routerLink]="'/create-contact'"> Create Contact </a>
+        <a mat-list-item color="accent" [routerLink]="'/activities'"> Activities </a>
+        <a mat-list-item color="accent" [routerLink]="'/create-activity'"> Create Activity </a>
+          
+      </mat-nav-list>
+    </mat-sidenav>
   
-    <mat-toolbar color="primary" class="example-toolbar" class="mat-spacer" height="30px">
+    <mat-sidenav-content>
+
+      
+      <!-- <img src="../products/images/chair.jpg" alt="Angular Carousel 2"> -->
+
+      <!-- <div class="example-events"> -->
+        
+
+          
+        
+
+
+
+        <div class="container" style="height: auto;" >
+          <h2>Carousel Example</h2>  
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+        
+
+            
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" >
+              <div class="item active">
+<!-- src="/assets/coding.gif" -->
+                <img src="/assets/chair.jpg" alt="chair"   
+                >
+              </div>
+        
+              <div class="item">
+                <img src="/assets/Couch.jpg" alt="Couch" >
+              </div>
+            
+              <div class="item">
+                <img src="/assets/smallchair.jpg" alt="small chair" >
+              </div>
+            </div>
+        
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- <mdb-carousel [controls]="true">
+  <mdb-carousel-item>
+    <img
+      src="../products/images/chair.jpg"
+      class="d-block w-100"
+      alt="..."
+    />
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img
+      src="../products/images/Couch.jpg"
+      class="d-block w-100"
+      alt="..."
+    />
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img
+      src="../products/images/red table.jpg"
+      class="d-block w-100"
+      alt="..."
+    />
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img
+      src="../products/images/small chair.PNG"
+      class="d-block w-100"
+      alt="..."
+    />
+  </mdb-carousel-item>
+</mdb-carousel> -->
+
+        <!-- <div >
+          <app-home></app-home>
+        </div> -->
+      <!-- </div> -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+    <!-- <mat-toolbar color="primary" class="example-toolbar" class="mat-spacer" height="30px">
       <mat-toolbar-row style="display: inline-flex; text-align: justify;">
       <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
       <h1 class="example-app-name">Side Menu</h1>
-       <!-- <span class="menu-spacer"></span> -->
+       <span class="menu-spacer"></span> -->
   <!-- <nav
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 justify-content-between"
   > -->
     <!-- <div class="toolbar-spacer"> -->
       
-      <a mat-button [routerLink]="['/'] " >
+      <!-- <a mat-button [routerLink]="['/'] " >
         <img src="/assets/lounge-logo.gif"  alt="FurnitureFrontUI" height="70px" >
         
       </a>
       <div>
-      <!-- <a  mat-button [routerLink]="['/']">Home</a> -->
-      <a mat-button [routerLink]="['/counter']">Counter</a>
+      <a  mat-button [routerLink]="['/']">Home</a> -->
+      <!-- <a mat-button [routerLink]="['/counter']">Counter</a>
       <a mat-button [routerLink]="['/fetch-data']">Fetch data</a>
       <a mat-button [routerLink]="['/products']">Products</a>
       <a mat-button [routerLink]="['/parts']">Parts</a>
     
+      <a>
       <mat-form-field >
         <input matInput
                     placeholder="Search"
           aria-label="Search"
         />
-        <mat-icon matPrefix>search</mat-icon>
-      </mat-form-field>
+        <mat-icon matPrefix>search</mat-icon> -->
+      <!-- </mat-form-field>
+    </a>
     </div>
       <div >
         <mat-icon font-size="30px" style="display: inline;">shopping_cart</mat-icon>
@@ -35,15 +188,15 @@
                 <span *ngIf="!changeText"></span>
                 <span *ngIf="changeText">Nr of items in cart</span>
                   </div>
-                </div>
-                <a mat-stroked-button color="black" [routerLink]="['user']">User Profile</a>
+                </div> -->
+                <!-- <a mat-stroked-button color="black" [routerLink]="['user']">User Profile</a>
                 <button mat-raised-button color="accent" color:black *ngIf="!loginDisplay" (click)="login()">Login</button>
                 <button mat-raised-button color="warn" *ngIf="loginDisplay" (click)="logout()">Logout</button> 
   </mat-toolbar-row>           
 
 
-  </mat-toolbar>
-  
+  </mat-toolbar> -->
+<!--   
   <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
@@ -64,7 +217,7 @@
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
   
 </header>
 

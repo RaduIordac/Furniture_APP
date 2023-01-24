@@ -19,6 +19,9 @@ namespace Application.DTOs
 
         public IEnumerable<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
 
+        public IEnumerable<ProductDto> Products { get; set; } = new List<ProductDto>();
+
+
         public string? Picture { get; set; }
         public decimal SalesPrice
         {
