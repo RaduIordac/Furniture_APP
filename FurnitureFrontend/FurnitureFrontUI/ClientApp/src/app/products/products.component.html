@@ -30,7 +30,8 @@
   <button mat-raised-button (click)="goToEditProduct(product)">Edit 
     {{product.name}}</button>
     
-  <button mat-button mat-raised-button color="primary">Add to cart</button>
+  <button mat-button color="primary" (click)="addToCart(product)">Add to cart</button>
+  
 
   
 </mat-card-actions>
@@ -61,6 +62,7 @@
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
       <td>{{ product.created }}</td>
+      
       <!-- <td>{{ product.parts?.map(p =>p.name)?.join(',') ?? ''  }}</td> -->
       <!-- <td>{{ product.picture }}</td> -->
       <td>

@@ -26,7 +26,7 @@ namespace Application.DTOs
         public decimal SalesPrice
         {
             get { return (Price * 1.5m) * Discount; }
-            set { SalesPrice = value; }
+            set => SalesPrice = value;
         }
     }
 }

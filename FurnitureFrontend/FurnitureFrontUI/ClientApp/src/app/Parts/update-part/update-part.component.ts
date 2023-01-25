@@ -25,9 +25,9 @@ export class UpdatePartComponent implements OnInit{
       });
   
       this.UpdatePartForm = this.formBuilder.group({
-        productname: [null, [Validators.required, Validators.minLength(4)]],
-        interest: [null, [Validators.required]] 
-        
+        partname: [null, [Validators.required, Validators.minLength(4)]],
+        price: [null, [Validators.required], Validators.min(1)] ,
+        quantity: [null, [Validators.required], Validators.min(1)] 
       });
     }
    

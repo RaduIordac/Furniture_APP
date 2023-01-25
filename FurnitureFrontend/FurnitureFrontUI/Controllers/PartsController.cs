@@ -8,6 +8,7 @@ using Application.Parts.GetById;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace FurnitureWebAPI.Controllers
 {
@@ -41,9 +42,9 @@ namespace FurnitureWebAPI.Controllers
         }
         //[Route("{id}")]
         [HttpGet("{id}", Name = "Get Part by Id")]
-        public ActionResult<Part> GetByID(int id)
+        public async Task<ActionResult<Part>> GetByID(int id)
         {
-            var result = _unitOfWork.PartRepository.GetPart(id);
+            var result = await _mediatr.Send(new GetPartsByIdQuery { Id = id });
 
             if (result == null)
             {

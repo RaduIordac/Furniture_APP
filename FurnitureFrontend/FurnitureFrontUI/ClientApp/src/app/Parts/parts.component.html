@@ -56,7 +56,7 @@
 
 
 <hr>
-<!-- <p *ngIf="!parts?.length"><em>Loading...</em></p> -->
+<p *ngIf="!parts?.length"><em>Loading...</em></p>
 <div>
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="parts.length" width="90%">
   <thead>
@@ -64,9 +64,9 @@
       <th>Id</th>
       <th>Name</th>
       <th>QuantityInStock</th>
-      <th>Price </th>
-      <th>Categories List</th>
-      <th>Picture</th>
+      <th>Sales price </th>
+      <!-- <th>Categories List</th>
+      <th>Picture</th> -->
       <th>Options</th>
     </tr>
   </thead>
@@ -75,11 +75,11 @@
       <td>{{ part.id }}</td>
       <td>{{ part.name }}</td>
       <td>{{ part.quantityInStock }}</td>
-      <td>{{ part.price }}</td>
-      <td>{{ part.categories}}</td>
-      <td>{{ part.picture }}</td>
+      <td>{{ part.salesprice }}</td>
+      <!-- <td>{{ part.categories}}</td>
+      <td>{{ part.picture }}</td> -->
     
-      <td *ngFor="let categ of part.categories">{{categ}}</td>
+      <!-- <td *ngFor="let categ of part.categories">{{categ.name}}</td> -->
       <td><button mat-button (click)="goToEditPart(part)">Edit Part</button></td>
 
     </tr>

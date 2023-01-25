@@ -8,4 +8,5 @@ export interface Part {
     price: number;
     categories: Category[];
     picture: string;
+    salesprice: number;
 }

@@ -17,19 +17,33 @@
             
         </mat-form-field>
 
-        <!-- <mat-form-field appearance="fill">
-            <mat-label for="interest">Price</mat-label>
+        <mat-form-field appearance="fill">
+            <mat-label for="price">Sales Price </mat-label>
             <input matInput
                    class="form-control"
-                   type="interest"
-                   formControlName="interest"
+                   type="price"
+                   formControlName="price"
                    placeholder="xx.xx"
-                   [(ngModel)]="product.interest"
-                   #interest>
-            <mat-error *ngIf="UpdateProductForm.controls['interest'].errors?.['required']">Interest is required</mat-error>
-            <mat-error *ngIf="UpdateProductForm.controls['interest'].errors?.['pattern']">Interest must be decimal</mat-error> -->
+                   [(ngModel)]="part.price"
+                   #price>
+            <mat-error *ngIf="UpdatePartForm.controls['price'].errors?.['required']">Price is required</mat-error>
+            <mat-error *ngIf="UpdatePartForm.controls['price'].errors?.['min']">Price must be min 1</mat-error>
             
-        <!-- </mat-form-field> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label for="quantity">Quantity </mat-label>
+            <input matInput
+                   class="form-control"
+                   type="quantity"
+                   formControlName="quantity"
+                   placeholder="x"
+                   [(ngModel)]="part.quantityInStock"
+                   #quantity>
+            <mat-error *ngIf="UpdatePartForm.controls['quantity'].errors?.['required']">Price is required</mat-error>
+            <mat-error *ngIf="UpdatePartForm.controls['quantity'].errors?.['min']">Price must be min 1</mat-error>
+            
+        </mat-form-field>
         <button mat-raised-button color="primary" (click)="updatePart(part)" *ngIf="part.id">Update part :{{part.name}}</button>
         <button mat-raised-button color="warn" (click)="deletePart(part)" *ngIf="part.id">Delete part :{{part.name}}</button>
         <button mat-raised-button color="accent" (click)="createPart(part)" *ngIf="!part.id">Create part :{{part.name}}</button>

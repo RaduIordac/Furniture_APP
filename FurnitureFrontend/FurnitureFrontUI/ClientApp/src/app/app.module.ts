@@ -46,6 +46,7 @@ import { ProductNamePipe } from './product-name.pipe';
 import { PartsComponent } from './Parts/parts.component';
 import { UpdatePartComponent } from './Parts/update-part/update-part.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -74,6 +75,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     PartsComponent,
     UpdatePartComponent,
     CreateProductComponent,
+    CartComponent,
     
   ],
   imports: [
@@ -146,7 +148,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       { path: 'parts', component: PartsComponent, title: "Parts display" },
       { path: 'edit-part/:id', component: UpdatePartComponent, title: "Edit part"},
       { path: 'create-product', component: CreateProductComponent, title: "Create Product"},
-      
+      { path: 'feedback-form', component: FeedbackFormComponent, title: "Feedback Form" },
+      { path: 'cart', component: CartComponent, title:"Cart" },
       
      
 
