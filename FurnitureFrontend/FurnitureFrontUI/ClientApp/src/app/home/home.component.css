@@ -1,6 +1,6 @@
-#home {
+/* #home {
   width: auto;
-}
+} */
 
 .home-class {
   background-image: url("../static/images/Home-back.jpg") !important;
@@ -10,11 +10,11 @@
   background-size: cover;
 }
 
-.title_card{
+/* .title_card{
   width: 95%;
   height: 95%;
   margin: 5%;
-}
+} */
 
 .center{
   margin: auto;

@@ -1,16 +1,16 @@
 
 
-<div *ngIf="!loginDisplay">
+<div *ngIf="!loginDisplay" style="height:200px">
   <p style="color: rgb(226, 44, 31); text-align: center;">Please sign-in to see your profile information.</p>
 </div>
 <div *ngIf="loginDisplay">
   <mat-card class="title-card">
     <mat-card-content>
-      <div class="center" > <h1>Hello, {{userName}}!</h1></div>
+      <div class="center" style="background-color: aqua; width: 500px; height: 100px; text-align: center; "> <h1>Hello, {{userName}}!</h1></div>
     </mat-card-content>
   </mat-card>
 </div>
-<div id="home" class="home-class" style="border: 2px; border-color: black; text-align: justify;">
+<div id="home" class="home-class" style="border: 2px; border-color: black;  justify-content: space-around; height:600px">
 <p>Welcome to your new single-page application, built with:</p>
 <ul>
   <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>

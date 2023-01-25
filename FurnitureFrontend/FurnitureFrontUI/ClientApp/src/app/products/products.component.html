@@ -8,13 +8,14 @@
 <mat-card>
 <mat-card-header>
   <div mat-card-avatar>
-    <img mat-card-image src="{{product.picture}}" alt="={{product.name}}">
+    <img mat-card-image  alt="={{product.name}}"> 
+    <!-- //src="{{product.picture}}" -->
   </div>
   <mat-card-title>{{product.name}}</mat-card-title>
 </mat-card-header>
 <hr>
-<img mat-card-image src="{{product.picture}}" onerror="this.src='https://media.istockphoto.com/id/977415490/ro/vector/canapele-%C8%99i-canapele-living-si-mobilier-de-terasa-pictograme-vectoriale.jpg?s=1024x1024&w=is&k=20&c=8d7TNfhJpXwyDBahMAkj_5LGe51aFKyysfDQDWUPf3E='" alt="={{product.name}}">
-
+<img mat-card-image src="" onerror="this.src='https://media.istockphoto.com/id/977415490/ro/vector/canapele-%C8%99i-canapele-living-si-mobilier-de-terasa-pictograme-vectoriale.jpg?s=1024x1024&w=is&k=20&c=8d7TNfhJpXwyDBahMAkj_5LGe51aFKyysfDQDWUPf3E='" alt="={{product.name}}">
+<!-- src="{{product.picture}}" -->
 <hr>
 <mat-card-content>
   <p>The product: {{product.name}} costs: {{product.price}}</p>
@@ -45,7 +46,7 @@
       <th>Price </th>
       <th>Date Created</th>
       <th>Picture</th>
-      <th>Parts List</th>
+      <th>Parts List</th> -->
       <th>Categories List</th>
       <th>Options</th>
     </tr>
@@ -56,7 +57,7 @@
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
       <td>{{ product.created }}</td>
-      <td>{{ product.picture }}</td>
+      <!-- <td>{{ product.picture }}</td> -->
       <td *ngFor="let part of product.parts||[]">
       <span>
         <ng-container *ngIf="!part">
@@ -64,7 +65,7 @@
         </ng-container>
       </span>
       {{part}}</td>
-      <td *ngFor="let categ of product.categories">{{categ}}</td>
+      <!-- <td *ngFor="let categ of product.categories">{{categ}}</td> -->
       <td><button mat-button (click)="goToEditProduct(product)">Edit Product</button></td>
 
     </tr>

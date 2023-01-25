@@ -6,7 +6,7 @@ export interface Product {
   name: string;
   price: number;
   created: Date;
-  picture: string;
+  // picture: string;
   likeCount: number;
   parts: Part[];
   categories: Category[];

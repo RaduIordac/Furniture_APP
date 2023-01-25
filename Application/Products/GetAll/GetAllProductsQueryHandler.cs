@@ -28,19 +28,19 @@ namespace Application.Products.List
                 ProductDto productDto = new ProductDto();
                 productDto.Id = product.Id;
                 productDto.Name = product.Name;
-                productDto.Price = product.Price;
-                productDto.Interest = product.Interest;
-                productDto.Picture= product.Picture;
-                productDto.Parts = product.Parts.Select(p => new PartDto
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    SalesPrice = p.SalesPrice,
-                    Picture= p.Picture,
-                    Discount= p.Discount,
-                    QuantityInStock= p.QuantityInStock,
+                //productDto.Price = product.Price;
+                //productDto.Interest = product.Interest;
+                ////productDto.Picture= product.Picture;
+                //productDto.Parts = product.Parts.Select(p => new PartDto
+                //{
+                //    Id = p.Id,
+                //    Name = p.Name,
+                //    //SalesPrice = p.SalesPrice,
+                //    //Picture= p.Picture,
+                //    //Discount= p.Discount,
+                //    //QuantityInStock= p.QuantityInStock,
                     
-                });
+                //});
 
                 result.Add(productDto);
             }

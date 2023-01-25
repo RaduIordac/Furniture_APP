@@ -1,3 +1,4 @@
+import { trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
@@ -8,6 +9,11 @@ import {ProfileType} from '../userstuff/user-profile/user-profile.component'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  
+    animations: [
+      trigger('fade', [])
+    ],
+  
   styleUrls: ['./home.component.css'],
 })
 

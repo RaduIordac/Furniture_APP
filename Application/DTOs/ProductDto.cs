@@ -19,6 +19,7 @@ namespace Application.DTOs
         public IEnumerable<PartDto> Parts { get; set; } = new List<PartDto>();
 
         public IEnumerable<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
+
         public DateTime Modified { get; set; } = DateTime.Now;
 
         public string? Picture { get; set; }
