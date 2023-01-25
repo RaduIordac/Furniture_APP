@@ -13,7 +13,7 @@ namespace Application.DTOs
         public string Name { get; set; } = string.Empty;
         public int QuantityInStock { get; set; }
         
-        public decimal Price { get; }
+        public decimal Price { get; set; }
 
         public decimal Discount { get; set; } = 0.99m;
 
@@ -22,11 +22,11 @@ namespace Application.DTOs
         public IEnumerable<ProductDto> Products { get; set; } = new List<ProductDto>();
 
 
+
         public string? Picture { get; set; }
         public decimal SalesPrice
         {
             get { return (Price * 1.5m) * Discount; }
-            set => SalesPrice = value;
         }
     }
 }

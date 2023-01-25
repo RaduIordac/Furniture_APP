@@ -47,6 +47,8 @@ import { PartsComponent } from './Parts/parts.component';
 import { UpdatePartComponent } from './Parts/update-part/update-part.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
 import { CartComponent } from './cart/cart.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -154,7 +156,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
      
 
       { path: '**', redirectTo: '' },
-    ]), AppRoutingModule
+    ]), AppRoutingModule, CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [
     ContactFormServiceService,

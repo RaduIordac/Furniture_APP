@@ -13,7 +13,7 @@ import { CartService } from './cart.service';
 export class CartComponent {
   
   items = this.cartService.getItems();
-
+  totalPrice = this.cartService.gettotalPrice();
   constructor(
     private cartService: CartService
   ) { }

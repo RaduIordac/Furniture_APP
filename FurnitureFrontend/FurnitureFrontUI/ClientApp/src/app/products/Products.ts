@@ -12,5 +12,5 @@ export interface Product {
   categories: Category[];
   modified: Date;
   interest: number;
-  
+  quantity: number;
 }
