@@ -2,23 +2,26 @@
 
 <p>This component demonstrates fetching Products from the server.</p>
 <hr>
+<button mat-raised-button (click)="goToCreateProduct()">Create new product </button>
+<mat-grid-list [cols]="4" rowHeight="550px" display="flex"  align-items="stretch">
+  
 
-<mat-grid-list [cols]="5" rowHeight="800px" >
   <mat-grid-tile *ngFor="let product of products">
-<mat-card>
-<mat-card-header>
-  <div mat-card-avatar>
-    <img mat-card-image  alt="={{product.name}}"> 
+<mat-card  display="flex"  align-items="stretch" >
+<mat-card-header display="flex"  align-items="stretch">
+  <!-- <div mat-card-avatar display="flex"  align-items="stretch"> -->
+    <!-- <img mat-card-image  alt="={{product.name}}">  -->
     <!-- //src="{{product.picture}}" -->
-  </div>
-  <mat-card-title>{{product.name}}</mat-card-title>
+  <!-- </div> -->
+  <mat-card-title display="flex"  align-items="stretch">{{product.name}}</mat-card-title>
 </mat-card-header>
 <hr>
-<img mat-card-image src="" onerror="this.src='https://media.istockphoto.com/id/977415490/ro/vector/canapele-%C8%99i-canapele-living-si-mobilier-de-terasa-pictograme-vectoriale.jpg?s=1024x1024&w=is&k=20&c=8d7TNfhJpXwyDBahMAkj_5LGe51aFKyysfDQDWUPf3E='" alt="={{product.name}}">
+<img mat-card-image width="265" height="175" [src]="product.picture" onerror="this.src='https://media.istockphoto.com/id/977415490/ro/vector/canapele-%C8%99i-canapele-living-si-mobilier-de-terasa-pictograme-vectoriale.jpg?s=1024x1024&w=is&k=20&c=8d7TNfhJpXwyDBahMAkj_5LGe51aFKyysfDQDWUPf3E='" alt="={{product.name}}">
 <!-- src="{{product.picture}}" -->
 <hr>
-<mat-card-content>
-  <p>The product: {{product.name}} costs: {{product.price}}</p>
+<mat-card-content display="flex"  align-items="stretch">
+  <p>The product: {{product.name}} </p>
+   <p> costs: {{product.price}}</p>
 </mat-card-content>
 <mat-card-actions width="200px">
   <p aria-live="polite">Nr of likes: <strong>{{ product.likeCount }}</strong></p>
@@ -26,6 +29,7 @@
   <button mat-raised-button color="warn" (click)="decreaseLikes(product)" >Unlike</button>
   <button mat-raised-button (click)="goToEditProduct(product)">Edit 
     {{product.name}}</button>
+    
   <button mat-button mat-raised-button color="primary">Add to cart</button>
 
   
@@ -45,8 +49,8 @@
       <th>Name</th>
       <th>Price </th>
       <th>Date Created</th>
-      <th>Picture</th>
-      <th>Parts List</th> -->
+      <!-- <th>Picture</th> -->
+      <th>Parts List</th>
       <th>Categories List</th>
       <th>Options</th>
     </tr>
@@ -57,14 +61,15 @@
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
       <td>{{ product.created }}</td>
+      <!-- <td>{{ product.parts?.map(p =>p.name)?.join(',') ?? ''  }}</td> -->
       <!-- <td>{{ product.picture }}</td> -->
-      <td *ngFor="let part of product.parts||[]">
-      <span>
+      <td>
+      <!-- <span>
         <ng-container *ngIf="!part">
           None
         </ng-container>
-      </span>
-      {{part}}</td>
+      </span> -->
+      <span *ngFor="let part of product.parts||[]">{{part.name}}</span> <span>{{" "}} </span></td>
       <!-- <td *ngFor="let categ of product.categories">{{categ}}</td> -->
       <td><button mat-button (click)="goToEditProduct(product)">Edit Product</button></td>
 

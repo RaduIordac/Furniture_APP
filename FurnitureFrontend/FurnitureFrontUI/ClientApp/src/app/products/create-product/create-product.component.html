@@ -1,0 +1,41 @@
+<p>create-product works!</p>
+
+CreateProductForm
+
+<div class="form" >
+    <form [formGroup]="CreateProductForm" class="form-group" (ngSubmit)="onSubmit(CreateProductForm)">
+
+        <mat-form-field appearance="fill">
+            <mat-label for="productname">Product Name</mat-label>
+            <input matInput
+                   class="form-control"
+                   type="text"
+                   formControlName="productname"
+                   placeholder="Product name"
+                   [(ngModel)]="product.name"
+                   #productname>
+            <mat-error *ngIf="CreateProductForm.controls['productname'].errors?.['required']">Name is required</mat-error>       
+            <mat-error *ngIf="CreateProductForm.controls['productname'].errors?.['minlength']">Minimum 4 characters</mat-error>
+            
+        </mat-form-field>
+<br>
+        <mat-form-field appearance="fill">
+            <mat-label for="interest">Interest</mat-label>
+            <input matInput
+                   class="form-control"
+                   type="interest"
+                   formControlName="productinterest"
+                   placeholder="xx,xx"
+                   [(ngModel)]="product.interest"
+                   #interest>
+            <mat-error *ngIf="CreateProductForm.controls['productinterest'].errors?.['required']">Interest is required</mat-error>
+            <!-- <mat-error *ngIf="CreateProductForm.controls['interest'].errors?.['pattern']">Interest must be decimal</mat-error> -->
+            
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="accent" (click)="createProduct(product)" >Create</button>
+
+        
+    </form>
+ 
+</div>

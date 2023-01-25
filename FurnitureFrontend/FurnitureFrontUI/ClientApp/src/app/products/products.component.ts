@@ -1,7 +1,8 @@
 import { Component, Directive, HostListener, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './Products';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class ProductsComponent {
   public products: Product[] = [];
   
   
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router) {
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router   ) {
     http.get<Product[]>(baseUrl + 'api/products').subscribe({next: (result) => this.products = result, error: (err) => console.error(err),complete: () => console.info('complete')});
     
   }
@@ -44,6 +45,13 @@ public updatedProductList(products: Product[]){
   public goToEditProduct(product: Product){
     this.router.navigate(['edit-product', product.id])
   }
+
+  public goToCreateProduct(){
+    this.router.navigate(['create-product'])
+  }
+
+  
+
 }
 
 
