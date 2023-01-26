@@ -33,7 +33,7 @@ namespace Application.Products.Update
                 }
             }
 
-            product.Categories = (ICollection<Category>)request.Categories;
+            //product.Categories = (ICollection<Category>)request.Categories;
 
             _productRepository.Update(product);
 

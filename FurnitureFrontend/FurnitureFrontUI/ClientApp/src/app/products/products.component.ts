@@ -24,7 +24,7 @@ export class ProductsComponent {
   }
 
   public addToCart(product: Product) {
-    this.cartService.addToCart(product);
+    this.cartService.additemToCart(product);
     window.alert('Your product has been added to the cart!');
   }
 public updatedProductList(products: Product[]){

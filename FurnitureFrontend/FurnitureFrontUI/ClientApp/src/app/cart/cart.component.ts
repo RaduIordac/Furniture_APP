@@ -63,7 +63,7 @@ export class CartComponent implements OnInit{
 
   //----- clear cart item
   clearCart(items:Product[]) {
-    // this.items.forEach((item, index) => this.cartService.removeItem(index));
+    //this.items.forEach((item, index) => this.cartService.removeItem(index));
     this.cartService.clearCart(items);
     this.items = [...this.cartService.getItems()];
   }
@@ -71,8 +71,8 @@ export class CartComponent implements OnInit{
   //----- add item to cart
   addToCart(item:Product) {
     if (!this.cartService.itemInCart(item)) {
-      item.quantity = 1;
-      this.cartService.addToCart(item); //add items in cart
+      item.quantity = 5;
+      this.cartService.additemToCart(item); //add items in cart
       this.items = [...this.cartService.getItems()];
     }
   }

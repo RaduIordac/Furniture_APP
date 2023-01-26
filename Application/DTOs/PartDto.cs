@@ -17,7 +17,7 @@ namespace Application.DTOs
 
         public decimal Discount { get; set; } = 0.99m;
 
-        public IEnumerable<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
+        //public IEnumerable<CategoryDto> Categories { get; set; } = new List<CategoryDto>();
 
         public IEnumerable<ProductDto> Products { get; set; } = new List<ProductDto>();
 

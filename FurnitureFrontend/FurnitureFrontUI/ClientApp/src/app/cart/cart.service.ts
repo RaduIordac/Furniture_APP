@@ -35,22 +35,22 @@ export class CartService {
   //   return this.items.reduce((p, { price }) => p + price, 0);
   // }
 
-  addToCart(addedItem: Product) {
+  additemToCart(addedItem: Product) {
     this.items.push(addedItem);
     console.log(addedItem);
 
     //-----check if there are items already added in cart
-    /* let existingItems = [];
-    if ( localStorage.getItem('cart_items')){//----- update by adding new items
-      existingItems = JSON.parse(localStorage.getItem('cart_items'));
+    let existingItems = [];
+    if ( localStorage.getItem('cartitems')){//----- update by adding new items
+      existingItems = JSON.parse(localStorage.getItems('cartitems'));
       existingItems = [addedItem, ...existingItems];
       console.log( 'Items exists');
-    } */
+    } 
     //-----if no items, add new items
-    /* else{ 
+    else{ 
       console.log( 'NO items exists');
       existingItems = [addedItem]
-    } */
+    } 
 
     this.saveCart();
   }
@@ -60,17 +60,17 @@ export class CartService {
   } 
 
   loadCart(): void {
-    this.items = JSON.parse(localStorage.getItems("cart_items")) ?? [];
+    this.items = JSON.parse(localStorage.getItems("cartitems")) ?? [];
   }
 
   saveCart(): void {
-    localStorage.setItem('cart_items', JSON.stringify(this.items)); 
+    localStorage.setItem('cartitems', JSON.stringify(this.items)); 
   }
 
   clearCart(items: any) {
-    this.items = [];
+    items = [];
 
-    localStorage.removeItem("cart_items")
+    localStorage.removeItem("cartitems")
   }
 
   removeItem(item: { id: number; }) {
