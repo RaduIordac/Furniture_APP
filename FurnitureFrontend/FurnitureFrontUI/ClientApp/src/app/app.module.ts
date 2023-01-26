@@ -49,6 +49,7 @@ import { CreateProductComponent } from './products/create-product/create-product
 import { CartComponent } from './cart/cart.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CurrencyPipe } from "@angular/common";
 
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -103,7 +104,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+    CurrencyPipe,
     MatIconModule,
     MatSelectModule,
     MatRadioModule,
@@ -160,6 +161,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
   ],
   providers: [
     ContactFormServiceService,
+    CurrencyPipe,
     {
     provide:HTTP_INTERCEPTORS,
     useClass:MsalInterceptor,
